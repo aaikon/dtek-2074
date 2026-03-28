@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://btjk0bftfy3aw" path="res://components/MutationComponent.cs" id="1_ae33f"]
 [ext_resource type="Script" uid="uid://dek7j8gbfahsd" path="res://fella/Fella.cs" id="1_hahaf"]
+[ext_resource type="Script" uid="uid://d3h5fdt22umfy" path="res://TestMutation.cs" id="3_mlwtl"]
 [ext_resource type="Script" uid="uid://beu4rd38r5hwv" path="res://components/VelocityComponent.cs" id="3_y1f3r"]
+[ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="5_gdvss"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y1f3r"]
 
@@ -10,8 +12,13 @@
 script = ExtResource("1_hahaf")
 velocityComponent = NodePath("VelocityComponent")
 
-[node name="MutationComponent" type="Node" parent="." unique_id=1016272616]
+[node name="MutationComponent" type="Node" parent="." unique_id=1016272616 node_paths=PackedStringArray("VelocityComponent")]
 script = ExtResource("1_ae33f")
+VelocityComponent = NodePath("../VelocityComponent")
+
+[node name="TestMutation" type="Node" parent="MutationComponent" unique_id=1621694244]
+script = ExtResource("3_mlwtl")
+metadata/_custom_type_script = "uid://d3h5fdt22umfy"
 
 [node name="VelocityComponent" type="Node" parent="." unique_id=2007396074]
 script = ExtResource("3_y1f3r")
@@ -21,3 +28,7 @@ metadata/_custom_type_script = "uid://beu4rd38r5hwv"
 position = Vector2(1.9073486e-06, 1.9073486e-06)
 scale = Vector2(27.5, 27.5)
 texture = SubResource("PlaceholderTexture2D_y1f3r")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=752654230]
+script = ExtResource("5_gdvss")
+metadata/_custom_type_script = "uid://ck4p010nvjrti"

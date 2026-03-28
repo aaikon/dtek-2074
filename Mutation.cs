@@ -1,11 +1,16 @@
 using Godot;
+using Game.component;
 
 namespace Game.mutation
 {
   [GlobalClass]
   public abstract partial class Mutation : Node
   {
-    [Export]
-    private string name;
+    private MutationComponent mutationComponent;
+
+    public virtual void Apply(MutationComponent mutationComponent)
+    {
+      this.mutationComponent = mutationComponent;
+    }
   }
 }

@@ -7,5 +7,12 @@ namespace Game.character
   {
 	[Export]
 	private VelocityComponent velocityComponent;
+
+	public override void _Process(double delta)
+	{
+	  velocityComponent.AccelerateInDirection(GlobalPosition.DirectionTo(GetGlobalMousePosition()));
+	  velocityComponent.Move(this);
+	}
+
   }
 }
