@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cdmlgetgkgnnm"]
+
+[ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://fella/fella.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=920880331]
+
+[node name="Fella" parent="." unique_id=1031044430 instance=ExtResource("1_ig7tw")]

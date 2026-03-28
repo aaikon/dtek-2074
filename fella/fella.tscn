@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://gv3p656rt5nu"]
+
+[ext_resource type="Script" uid="uid://btjk0bftfy3aw" path="res://components/MutationComponent.cs" id="1_ae33f"]
+[ext_resource type="Script" uid="uid://dek7j8gbfahsd" path="res://fella/Fella.cs" id="1_hahaf"]
+
+[node name="Fella" type="CharacterBody2D" unique_id=1459455642]
+script = ExtResource("1_hahaf")
+
+[node name="MutationComponent" type="Node" parent="." unique_id=1016272616]
+script = ExtResource("1_ae33f")
