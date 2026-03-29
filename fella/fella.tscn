@@ -2,23 +2,24 @@
 
 [ext_resource type="Script" uid="uid://btjk0bftfy3aw" path="res://components/MutationComponent.cs" id="1_ae33f"]
 [ext_resource type="Script" uid="uid://dek7j8gbfahsd" path="res://fella/Fella.cs" id="1_hahaf"]
-[ext_resource type="Script" uid="uid://d3h5fdt22umfy" path="res://TestMutation.cs" id="3_mlwtl"]
 [ext_resource type="Script" uid="uid://beu4rd38r5hwv" path="res://components/VelocityComponent.cs" id="3_y1f3r"]
 [ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="5_gdvss"]
+[ext_resource type="Script" uid="uid://dyb7v154fjvka" path="res://components/PathfindComponent.cs" id="6_5142c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdvss"]
+radius = 8.0
+height = 28.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y1f3r"]
 
-[node name="Fella" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("velocityComponent")]
+[node name="Fella" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("velocityComponent", "pathfindComponent")]
 script = ExtResource("1_hahaf")
 velocityComponent = NodePath("VelocityComponent")
+pathfindComponent = NodePath("PathfindComponent")
 
 [node name="MutationComponent" type="Node" parent="." unique_id=1016272616 node_paths=PackedStringArray("VelocityComponent")]
 script = ExtResource("1_ae33f")
 VelocityComponent = NodePath("../VelocityComponent")
-
-[node name="TestMutation" type="Node" parent="MutationComponent" unique_id=1621694244]
-script = ExtResource("3_mlwtl")
-metadata/_custom_type_script = "uid://d3h5fdt22umfy"
 
 [node name="VelocityComponent" type="Node" parent="." unique_id=2007396074]
 script = ExtResource("3_y1f3r")
@@ -28,7 +29,23 @@ metadata/_custom_type_script = "uid://beu4rd38r5hwv"
 script = ExtResource("5_gdvss")
 metadata/_custom_type_script = "uid://ck4p010nvjrti"
 
+[node name="PathfindComponent" type="Node2D" parent="." unique_id=141600585 node_paths=PackedStringArray("velocityComponent", "NavigationAgent2D")]
+script = ExtResource("6_5142c")
+velocityComponent = NodePath("../VelocityComponent")
+NavigationAgent2D = NodePath("../NavigationAgent2D")
+metadata/_custom_type_script = "uid://dyb7v154fjvka"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=731398034]
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.32402298, 0.33319893, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298348590]
+rotation = -1.568477
+shape = SubResource("CapsuleShape2D_gdvss")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1742572400]
-position = Vector2(1.9073486e-06, 1.9073486e-06)
+position = Vector2(1.1368684e-13, -13.999999)
 scale = Vector2(27.5, 27.5)
 texture = SubResource("PlaceholderTexture2D_y1f3r")

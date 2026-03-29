@@ -2,7 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://fella/fella.tscn" id="1_ig7tw"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ig7tw"]
+vertices = PackedVector2Array(1123, 32, 1123, 621, 615, 517, 511, 419, 29.21875, 621, 41.789063, 32, 268, 506, 470, 593)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 6), PackedInt32Array(7, 2, 1), PackedInt32Array(7, 1, 4), PackedInt32Array(6, 7, 4), PackedInt32Array(0, 3, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, 22, 1133, 22, 1133, 631, 19, 631)])
+
 [node name="Main" type="Node2D" unique_id=920880331]
+
+[node name="Fella3" parent="." unique_id=1459455642 instance=ExtResource("1_ig7tw")]
+position = Vector2(386, 275)
+
+[node name="Fella2" parent="." unique_id=234630649 instance=ExtResource("1_ig7tw")]
+position = Vector2(772, 550)
 
 [node name="Fella" parent="." unique_id=1031044430 instance=ExtResource("1_ig7tw")]
 position = Vector2(386, 275)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=808654631]
+navigation_polygon = SubResource("NavigationPolygon_ig7tw")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D" unique_id=1532581950]
+position = Vector2(195, 534)
+vertices = PackedVector2Array(73, -28, 316, -115, 420, -17, 275, 59)
+affect_navigation_mesh = true
+carve_navigation_mesh = true

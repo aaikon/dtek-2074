@@ -5,14 +5,16 @@ namespace Game.character
 {
   public partial class Fella : CharacterBody2D
   {
-	[Export]
-	private VelocityComponent velocityComponent;
+    [Export]
+    private VelocityComponent velocityComponent;
+    [Export]
+    private PathfindComponent pathfindComponent;
 
-	public override void _Process(double delta)
-	{
-	  velocityComponent.AccelerateInDirection(GlobalPosition.DirectionTo(GetGlobalMousePosition()));
-	  velocityComponent.Move(this);
-	}
-
+    public override void _Process(double delta)
+    {
+      pathfindComponent.SetTargetPosition(GetGlobalMousePosition());
+      pathfindComponent.FollowPath();
+      velocityComponent.Move(this);
+    }
   }
 }
