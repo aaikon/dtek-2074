@@ -50,5 +50,10 @@ namespace Game.component
     {
       speedPercentModifiers[name] = modifier;
     }
+
+    public void RemoveSpeedPercentModifier(string name)
+    {
+      speedPercentModifiers.Remove(name);
+    }
   }
 }

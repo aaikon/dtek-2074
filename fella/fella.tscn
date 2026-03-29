@@ -24,11 +24,11 @@ metadata/_custom_type_script = "uid://d3h5fdt22umfy"
 script = ExtResource("3_y1f3r")
 metadata/_custom_type_script = "uid://beu4rd38r5hwv"
 
+[node name="HealthComponent" type="Node" parent="." unique_id=752654230]
+script = ExtResource("5_gdvss")
+metadata/_custom_type_script = "uid://ck4p010nvjrti"
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1742572400]
 position = Vector2(1.9073486e-06, 1.9073486e-06)
 scale = Vector2(27.5, 27.5)
 texture = SubResource("PlaceholderTexture2D_y1f3r")
-
-[node name="HealthComponent" type="Node" parent="." unique_id=752654230]
-script = ExtResource("5_gdvss")
-metadata/_custom_type_script = "uid://ck4p010nvjrti"
