@@ -25,7 +25,7 @@ namespace Game.component
 
       var direction = (NavigationAgent2D.GetNextPathPosition() - GlobalPosition).Normalized();
       velocityComponent.AccelerateInDirection(direction);
-      NavigationAgent2D.SetVelocityForced(velocityComponent.Velocity);
+      NavigationAgent2D.Velocity = velocityComponent.Velocity;
     }
-  }
+  } 
 }

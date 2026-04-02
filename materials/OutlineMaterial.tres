@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dpem1p57p8tg3"]
+
+[ext_resource type="Shader" uid="uid://g24pw0lerb6f" path="res://shaders/Outline.gdshader" id="1_0j4ag"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_0j4ag")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/corner_pixel = false
+shader_parameter/enabled = false

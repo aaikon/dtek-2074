@@ -1,24 +1,25 @@
 using Game.component;
 using Godot;
 
-namespace Game.character
+namespace Game.unit
 {
-  public partial class Unit : CharacterBody2D
+  public partial class Gnome : CharacterBody2D
   {
+
     [Export]
     private VelocityComponent velocityComponent;
     [Export]
     private PathfindComponent pathfindComponent;
     [Export]
-    private AnimatedSprite2D sprite;
+    public AnimatedSprite2D Sprite;
 
-    private Vector2? target;
+    private Vector2? targetPosition;
 
     private StateMachine stateMachine = new();
 
     public override void _Ready()
     {
-      AddToGroup("units");
+      AddToGroup("player");
       stateMachine.SetState(StateIdle);
     }
 
@@ -29,9 +30,9 @@ namespace Game.character
 
     private void StateIdle()
     {
-      sprite.Play("idle");
+      Sprite.Play("idle");
 
-      if (target != null)
+      if (targetPosition != null)
       {
 
         stateMachine.SetState(StateMove);
@@ -44,22 +45,22 @@ namespace Game.character
       var velocity = velocityComponent.Velocity;
       if (Mathf.Abs(velocity.X) > Mathf.Abs(velocity.Y))
       {
-        sprite.Play("move_horizontal");
-        sprite.Scale = new Vector2(Mathf.Sign(velocity.X), 1);
+        Sprite.Play("move_horizontal");
+        Sprite.Scale = new Vector2(Mathf.Sign(velocity.X), 1);
       }
       else
       {
         if (velocity.Y > 0)
         {
-          sprite.Play("move_down");
+          Sprite.Play("move_down");
         }
         else
         {
-          sprite.Play("move_up");
+          Sprite.Play("move_up");
         }
       }
 
-      if (target == null)
+      if (targetPosition == null)
       {
         stateMachine.SetState(StateIdle);
         return;
@@ -70,7 +71,7 @@ namespace Game.character
 
       if (pathfindComponent.NavigationAgent2D.IsNavigationFinished())
       {
-        target = null;
+        targetPosition = null;
         stateMachine.SetState(StateIdle);
         return;
       }
@@ -83,7 +84,7 @@ namespace Game.character
 
     public void MoveTo(Vector2 target)
     {
-      this.target = target;
+      this.targetPosition = target;
       pathfindComponent.SetTargetPosition(target);
     }
   }

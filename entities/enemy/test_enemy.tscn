@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://61dv82ft2vey"]
+
+[ext_resource type="Script" uid="uid://rf2g00phkvqf" path="res://entities/enemy/TestEnemy.cs" id="1_gp0w8"]
+[ext_resource type="Material" uid="uid://dpem1p57p8tg3" path="res://materials/OutlineMaterial.tres" id="2_c708d"]
+[ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="3_bs10j"]
+[ext_resource type="Texture2D" uid="uid://bfgadbbpdu770" path="res://sTestEnemy.png" id="3_c708d"]
+[ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="5_bs10j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bs10j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxplg"]
+size = Vector2(24, 24)
+
+[node name="TestEnemy" type="CharacterBody2D" unique_id=2135266261]
+script = ExtResource("1_gp0w8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1076161956]
+shape = SubResource("CircleShape2D_bs10j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=637508398]
+material = ExtResource("2_c708d")
+position = Vector2(0, -8)
+texture = ExtResource("3_c708d")
+
+[node name="SelectableComponent" type="Area2D" parent="." unique_id=390734002 node_paths=PackedStringArray("Target")]
+material = ExtResource("2_c708d")
+script = ExtResource("3_bs10j")
+Target = NodePath("..")
+material = ExtResource("2_c708d")
+metadata/_custom_type_script = "uid://c6emffiokyt8t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent" unique_id=1987748386]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_qxplg")
+
+[node name="ShadowComponent" type="Node2D" parent="." unique_id=152082382]
+script = ExtResource("5_bs10j")
+size = Vector2(6, 4)
+metadata/_custom_type_script = "uid://8b14piof2keb"

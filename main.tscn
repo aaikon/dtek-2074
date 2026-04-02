@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cdmlgetgkgnnm"]
 
-[ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://unit/unit.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://byuploho2lccc" path="res://controllers/PlayerMovementController.cs" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cdp5vh1lsqit5" path="res://gui/hud.tscn" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://61dv82ft2vey" path="res://entities/enemy/test_enemy.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://entities/player/gnome.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://byuploho2lccc" path="res://controllers/PlayerController.cs" id="2_0xm2m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ig7tw"]
 vertices = PackedVector2Array(1142, 638, 10, 638, 10, 10, 1142, 10)
@@ -10,19 +12,54 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, 0, 1152, 64
 
 [node name="Main" type="Node2D" unique_id=920880331]
 
+[node name="HUD" parent="." unique_id=1619034063 instance=ExtResource("1_1bvp3")]
+
+[node name="TestEnemy" parent="." unique_id=2135266261 instance=ExtResource("1_h2yge")]
+position = Vector2(135, 52)
+
+[node name="Gnome3" parent="." unique_id=1459455642 instance=ExtResource("1_ig7tw")]
+position = Vector2(106, 24)
+
+[node name="Gnome4" parent="." unique_id=209477114 instance=ExtResource("1_ig7tw")]
+position = Vector2(102, 52)
+
+[node name="Gnome5" parent="." unique_id=27865115 instance=ExtResource("1_ig7tw")]
+position = Vector2(51, 131)
+
+[node name="Gnome6" parent="." unique_id=952773175 instance=ExtResource("1_ig7tw")]
+position = Vector2(95, 111)
+
+[node name="Gnome7" parent="." unique_id=163086916 instance=ExtResource("1_ig7tw")]
+position = Vector2(25, 84)
+
+[node name="Gnome8" parent="." unique_id=359007405 instance=ExtResource("1_ig7tw")]
+position = Vector2(22, 24)
+
+[node name="Gnome9" parent="." unique_id=56653140 instance=ExtResource("1_ig7tw")]
+position = Vector2(69, 15)
+
+[node name="Gnome10" parent="." unique_id=581600398 instance=ExtResource("1_ig7tw")]
+position = Vector2(63, 60)
+
+[node name="Gnome11" parent="." unique_id=844264557 instance=ExtResource("1_ig7tw")]
+position = Vector2(25, 54)
+
+[node name="Gnome12" parent="." unique_id=839433491 instance=ExtResource("1_ig7tw")]
+position = Vector2(72, 41)
+
+[node name="Gnome13" parent="." unique_id=1658374504 instance=ExtResource("1_ig7tw")]
+position = Vector2(91, 80)
+
+[node name="Gnome" parent="." unique_id=247968834 instance=ExtResource("1_ig7tw")]
+position = Vector2(45, 87)
+
+[node name="Gnome2" parent="." unique_id=252522957 instance=ExtResource("1_ig7tw")]
+position = Vector2(44, 18)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=808654631]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_ig7tw")
 
-[node name="Unit" parent="." unique_id=1459455642 instance=ExtResource("1_ig7tw")]
-position = Vector2(319, 228)
-
-[node name="Unit2" parent="." unique_id=308869179 instance=ExtResource("1_ig7tw")]
-position = Vector2(212, 143)
-
-[node name="Unit3" parent="." unique_id=849605081 instance=ExtResource("1_ig7tw")]
-position = Vector2(448, 209)
-
-[node name="PlayerMovementController" type="Node2D" parent="." unique_id=1538486086]
+[node name="PlayerController" type="Node2D" parent="." unique_id=1514662437]
 script = ExtResource("2_0xm2m")
 metadata/_custom_type_script = "uid://byuploho2lccc"
