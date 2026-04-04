@@ -1,3 +1,4 @@
+using Game.controller;
 using Godot;
 
 namespace Game.component
@@ -6,54 +7,43 @@ namespace Game.component
   public partial class SelectableComponent : Area2D
   {
     [Export]
-    public EntityDataComponent? EntityDataComponent;
+    public Node? Target;
     [Export]
-    private ShaderMaterial? material;
+    private ShaderMaterial? outlineMaterial;
 
-    public static SelectableComponent? Hovered { get; private set; }
-    public static SelectableComponent? Selected { get; private set; }
+    private SelectionController _controller;
 
     public override void _Ready()
     {
       AddToGroup("selectable");
+
       MouseEntered += OnMouseEntered;
       MouseExited += OnMouseExited;
     }
 
-    public override void _Input(InputEvent @event)
+    public override void _UnhandledInput(InputEvent @event)
     {
-      if (@event.IsActionPressed("select"))
-      {
-        Selected = Hovered ?? null;
-      }
+      if (!@event.IsActionPressed("select")) return;
+
+      if (SelectionController.Instance.Hovered != this) return;
+
+      SelectionController.Instance.SetSelection(this);
     }
 
     private void OnMouseEntered()
     {
       Input.SetDefaultCursorShape(Input.CursorShape.PointingHand);
-
-      if (Hovered != this)
-      {
-        Hovered?.SetHovered(false);
-        Hovered = this;
-        SetHovered(true);
-      }
+      SelectionController.Instance.SetHover(this);
     }
 
     private void OnMouseExited()
     {
       Input.SetDefaultCursorShape(Input.CursorShape.Arrow);
-
-      if (Hovered == this)
-      {
-        SetHovered(false);
-        Hovered = null;
-      }
+      SelectionController.Instance.ClearHover(this);
     }
 
-    private void SetHovered(bool value)
-    {
-      material?.SetShaderParameter("enabled", value);
-    }
+    public void SetHovered(bool value) => outlineMaterial?.SetShaderParameter("enabled", value);
+
+    public void SetSelected(bool value) => outlineMaterial?.SetShaderParameter("enabled", value);
   }
 }

@@ -9,9 +9,6 @@
 [ext_resource type="Material" uid="uid://dpem1p57p8tg3" path="res://materials/OutlineMaterial.tres" id="6_tt3j3"]
 [ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="7_e1tyj"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="9_tt3j3"]
-[ext_resource type="Script" uid="uid://b7bq7esxivoos" path="res://components/EntityDataComponent.cs" id="10_cxr6r"]
-[ext_resource type="Texture2D" uid="uid://cw6csqylc18on" path="res://sGnomeIcon.png" id="11_cxr6r"]
-[ext_resource type="Script" uid="uid://oti62f48el0b" path="res://resources/EntityData.cs" id="12_t18wy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdvss"]
 radius = 5.999984
@@ -176,12 +173,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_m8bbl"]
 radius = 6.0
 
-[sub_resource type="Resource" id="Resource_8bkqm"]
-script = ExtResource("12_t18wy")
-Name = "Gnome"
-Icon = ExtResource("11_cxr6r")
-metadata/_custom_type_script = "uid://oti62f48el0b"
-
 [node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("velocityComponent", "pathfindComponent", "Sprite")]
 script = ExtResource("1_hahaf")
 velocityComponent = NodePath("VelocityComponent")
@@ -203,6 +194,7 @@ metadata/_custom_type_script = "uid://beu4rd38r5hwv"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=752654230]
 script = ExtResource("5_gdvss")
+MaxHealth = 10.0
 metadata/_custom_type_script = "uid://ck4p010nvjrti"
 
 [node name="PathfindComponent" type="Node2D" parent="." unique_id=141600585 node_paths=PackedStringArray("velocityComponent", "NavigationAgent2D")]
@@ -222,11 +214,11 @@ animation = &"move_up"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1025064082]
 position_smoothing_enabled = true
 
-[node name="SelectableComponent" type="Area2D" parent="." unique_id=2009734818 node_paths=PackedStringArray("EntityDataComponent")]
+[node name="SelectableComponent" type="Area2D" parent="." unique_id=2009734818 node_paths=PackedStringArray("Target")]
 material = ExtResource("6_tt3j3")
 script = ExtResource("7_e1tyj")
-EntityDataComponent = NodePath("../EntityDataComponent")
-material = ExtResource("6_tt3j3")
+Target = NodePath("..")
+outlineMaterial = ExtResource("6_tt3j3")
 metadata/_custom_type_script = "uid://c6emffiokyt8t"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent" unique_id=723904033]
@@ -239,14 +231,6 @@ script = ExtResource("9_tt3j3")
 size = Vector2(6, 4)
 metadata/_custom_type_script = "uid://8b14piof2keb"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1854562030]
-target_desired_distance = 30.0
-path_max_distance = 400.0
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1167628146]
 avoidance_enabled = true
-radius = 60.0
-time_horizon_agents = 5.94
-
-[node name="EntityDataComponent" type="Node" parent="." unique_id=1547905918]
-script = ExtResource("10_cxr6r")
-EntityData = SubResource("Resource_8bkqm")
-metadata/_custom_type_script = "uid://b7bq7esxivoos"
+max_neighbors = 30

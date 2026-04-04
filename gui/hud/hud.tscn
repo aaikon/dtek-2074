@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cdp5vh1lsqit5"]
+
+[ext_resource type="Script" uid="uid://cyoo4justeq6i" path="res://gui/hud/Hud.cs" id="1_4w87a"]
+[ext_resource type="Script" uid="uid://crrouyh78waps" path="res://gui/hud/SelectionPanel.cs" id="2_4w87a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4w87a"]
+line_spacing = 0.0
+font_size = 10
+shadow_size = 0
+
+[node name="HUD" type="CanvasLayer" unique_id=1619034063 node_paths=PackedStringArray("selectionPanel")]
+script = ExtResource("1_4w87a")
+selectionPanel = NodePath("SelectionPanel")
+
+[node name="SelectionPanel" type="Control" parent="." unique_id=1216467851 node_paths=PackedStringArray("portraitRect", "nameLabel", "healthBar")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 32.0
+script = ExtResource("2_4w87a")
+portraitRect = NodePath("PortraitRect")
+nameLabel = NodePath("NameLabel")
+healthBar = NodePath("HealthBar")
+
+[node name="HealthBar" type="ProgressBar" parent="SelectionPanel" unique_id=2067979574]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+show_percentage = false
+
+[node name="NameLabel" type="Label" parent="SelectionPanel" unique_id=1044256575]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 16.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_4w87a")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="PortraitRect" type="TextureRect" parent="SelectionPanel" unique_id=2051262717]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0

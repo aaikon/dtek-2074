@@ -10,6 +10,12 @@ namespace Game.component
     [Export]
     public NavigationAgent2D NavigationAgent2D;
 
+    public override void _Ready()
+    {
+      NavigationAgent2D.MaxSpeed = velocityComponent.CalculatedMaxSpeed;
+      NavigationAgent2D.VelocityComputed += OnVelocityComputed;
+    }
+
     public void SetTargetPosition(Vector2 position)
     {
       NavigationAgent2D.TargetPosition = position;
@@ -23,9 +29,17 @@ namespace Game.component
         return;
       }
 
-      var direction = (NavigationAgent2D.GetNextPathPosition() - GlobalPosition).Normalized();
+      var direction = NavigationAgent2D.GetNextPathPosition() - GlobalPosition;
       velocityComponent.AccelerateInDirection(direction);
       NavigationAgent2D.Velocity = velocityComponent.Velocity;
     }
-  } 
+
+    private void OnVelocityComputed(Vector2 velocity)
+    {
+      var newDirection = velocity.Normalized();
+      var currentDirection = velocityComponent.Velocity.Normalized();
+      var halfway = newDirection.Lerp(currentDirection, 1f - Mathf.Exp(-velocityComponent.Acceleration * velocityComponent.AccelerationMultiplier * (float)GetPhysicsProcessDeltaTime()));
+      velocityComponent.Velocity = halfway * velocityComponent.Velocity.Length();
+    }
+  }
 }

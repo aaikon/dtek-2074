@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdmlgetgkgnnm"]
 
-[ext_resource type="PackedScene" uid="uid://cdp5vh1lsqit5" path="res://gui/hud.tscn" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cdp5vh1lsqit5" path="res://gui/hud/hud.tscn" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://61dv82ft2vey" path="res://entities/enemy/test_enemy.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://entities/player/gnome.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://byuploho2lccc" path="res://controllers/PlayerController.cs" id="2_0xm2m"]
