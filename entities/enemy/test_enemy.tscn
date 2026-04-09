@@ -26,7 +26,7 @@ texture = ExtResource("3_c708d")
 material = ExtResource("2_c708d")
 script = ExtResource("3_bs10j")
 Target = NodePath("..")
-material = ExtResource("2_c708d")
+outlineMaterial = ExtResource("2_c708d")
 metadata/_custom_type_script = "uid://c6emffiokyt8t"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent" unique_id=1987748386]

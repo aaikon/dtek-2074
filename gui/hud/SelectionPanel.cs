@@ -2,26 +2,27 @@ using Godot;
 
 public partial class SelectionPanel : Control
 {
-    [Export]
-    private TextureRect portraitRect;
+    
     [Export]
     private Label nameLabel;
     [Export]
+    private TextureRect portraitRect;
+    [Export]
     private ProgressBar healthBar;
+    [Export]
+    private Label healthLabel;
 
-    public void SetPortraitRectTexture(Texture2D texture)
+    public void SetEntityData(EntityData? data)
     {
-        portraitRect.Texture = texture;
-    }
-
-    public void SetNameLabelText(string name)
-    {
-        nameLabel.Text = name;
+        nameLabel.Text = data?.Name ?? "";
+        portraitRect.Texture = data?.Portrait;
     }
 
     public void OnHealthChanged(float health, float maxHealth)
     {
         healthBar.MaxValue = maxHealth;
         healthBar.Value = health;
+
+        healthLabel.Text = health + "/" + maxHealth;
     }
 }

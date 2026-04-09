@@ -24,20 +24,18 @@ public partial class Hud : CanvasLayer
 
     private void OnSelectionChanged(Array<SelectableComponent> selected)
     {
-        if (trackedHealth != null)
-        {
-            trackedHealth.HealthChanged -= selectionPanel.OnHealthChanged;
-            trackedHealth = null;
-        }
+        UnsubscribeFromCurrent();
 
         if (selected.Count == 0) {
-            Hide();
+            selectionPanel.Hide();
             return;
         }
 
         var target = selected[0].Target;
 
-        selectionPanel.SetNameLabelText(target.Name);
+        var entityDataComponent = target.GetNodeOrNull<EntityDataComponent>("EntityDataComponent");
+
+        selectionPanel.SetEntityData(entityDataComponent?.Data);
 
         trackedHealth = target.GetNodeOrNull<HealthComponent>("HealthComponent");
 
@@ -45,14 +43,26 @@ public partial class Hud : CanvasLayer
         {
             trackedHealth.HealthChanged += selectionPanel.OnHealthChanged;
             selectionPanel.OnHealthChanged(trackedHealth.Health, trackedHealth.MaxHealth);
-            GD.Print($"Health values: {trackedHealth.Health} / {trackedHealth.MaxHealth}");
+        } 
+        else
+        {
+            selectionPanel.OnHealthChanged(0f, 0f);
         }
 
-        Show();
+        selectionPanel.Show();
     }
 
     private void OnHoverChanged(SelectableComponent? hovered)
     {
 
+    }
+
+    private void UnsubscribeFromCurrent()
+    {
+        if (trackedHealth != null)
+        {
+            trackedHealth.HealthChanged -= selectionPanel.OnHealthChanged;
+            trackedHealth = null;
+        }
     }
 }

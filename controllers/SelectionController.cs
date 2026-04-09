@@ -16,8 +16,11 @@ namespace Game.controller
 
         public SelectableComponent? Hovered { get; private set; }
 
-        private readonly List<SelectableComponent> _selected = new();
-        public IReadOnlyList<SelectableComponent> Selected => _selected;
+        public List<SelectableComponent> Selected = new();
+
+        private Vector2? dragStart;
+        public Rect2 DragRect;
+        public bool IsDragging { get; private set; }
 
         public override void _Ready()
         {
@@ -26,8 +29,60 @@ namespace Game.controller
 
         public override void _UnhandledInput(InputEvent @event)
         {
-            if (!@event.IsActionPressed("select")) return;
-            if (Hovered == null) ClearSelection();
+            if (@event is InputEventMouseButton mouseButton)
+            {
+                if (mouseButton.IsAction("select"))
+                {
+                    if (mouseButton.Pressed)
+                    {
+                        dragStart = mouseButton.GlobalPosition;
+                        IsDragging = false;
+                    }
+                    else
+                    {
+                        if (IsDragging) 
+                            FinalizeDragSelection();
+                        else if (Hovered == null)
+                            ClearSelection();
+                        
+                        dragStart = null;
+                        IsDragging = false;
+                        DragRect = default;
+                    }
+                }
+            }
+
+            if (@event is InputEventMouseMotion mouseMotion && dragStart.HasValue)
+            {
+                var delta = mouseMotion.GlobalPosition - dragStart.Value;
+                if (!IsDragging && delta.Length() > 8f)
+                    IsDragging = true;
+
+                if (IsDragging)
+                {
+                    DragRect = new Rect2(dragStart.Value, mouseMotion.GlobalPosition - dragStart.Value).Abs();
+                }
+            }
+
+            if (@event.IsActionPressed("select") && !IsDragging && Hovered == null)
+                ClearSelection();
+        }
+
+        private void FinalizeDragSelection()
+        {
+            var found = new Array<SelectableComponent>();
+
+            foreach (var node in GetTree().GetNodesInGroup("selectable"))
+            {
+                if (node is not SelectableComponent selectable) continue;
+                if (DragRect.HasPoint(selectable.GetGlobalTransformWithCanvas().Origin))
+                    found.Add(selectable);
+            }
+
+            if (found.Count > 0)
+                SetSelection(found);
+            else
+                ClearSelection();
         }
 
         public void SetHover(SelectableComponent target)
@@ -50,15 +105,26 @@ namespace Game.controller
         public void SetSelection(SelectableComponent target)
         {
             ClearSelectionInternal();
-            _selected.Add(target);
+            Selected.Add(target);
             target.SetSelected(true);
+            EmitSignal(SignalName.SelectionChanged, ToArray());
+        }
+
+        public void SetSelection(Array<SelectableComponent> targets)
+        {
+            ClearSelectionInternal();
+            foreach (var target in targets)
+            {
+                Selected.Add(target);
+                target.SetSelected(true);
+            }
             EmitSignal(SignalName.SelectionChanged, ToArray());
         }
 
         public void AddToSelection(SelectableComponent target)
         {
-            if (_selected.Contains(target)) return;
-            _selected.Add(target);
+            if (Selected.Contains(target)) return;
+            Selected.Add(target);
             target.SetSelected(true);
             EmitSignal(SignalName.SelectionChanged, ToArray());
         }
@@ -71,10 +137,10 @@ namespace Game.controller
 
         private void ClearSelectionInternal()
         {
-            foreach (var s in _selected) s.SetSelected(false);
-            _selected.Clear();
+            foreach (var s in Selected) s.SetSelected(false);
+            Selected.Clear();
         }
 
-        private Array<SelectableComponent> ToArray() => new(_selected);
+        private Array<SelectableComponent> ToArray() => new(Selected);
     }
 }

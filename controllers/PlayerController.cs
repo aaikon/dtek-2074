@@ -3,38 +3,67 @@ using Game.unit;
 using System.Collections.Generic;
 using System.Linq;
 using Game.component;
+using Godot.Collections;
 
 namespace Game.controller
 {
   [GlobalClass]
   public partial class PlayerController : Node2D
   {
-    public override void _Input(InputEvent @event)
+    private Array<SelectableComponent> selected = new();
+
+    public override void _Ready()
     {
-      List<Gnome> playerUnits = [.. GetTree().GetNodesInGroup("player").Cast<Gnome>()];
-      List<SelectableComponent> selectables = [.. GetTree().GetNodesInGroup("selectable").Cast<SelectableComponent>()];
+      SelectionController.Instance.SelectionChanged += selected => this.selected = selected;
+    }
 
-      if (@event.IsActionPressed("move"))
+    public override void _UnhandledInput(InputEvent @event)
+    {
+      if (!@event.IsActionPressed("move")) return;
+
+      var hovered = SelectionController.Instance.Hovered;
+
+      if (hovered?.Target?.IsInGroup("enemies") == true)
       {
-        /*
-        if (SelectableComponent.Hovered?.Target != null)
-        {
-          var targetUnit = SelectableComponent.Hovered.Target;
+        IssueAttackOrder(hovered.Target as CharacterBody2D);
+      }
+      else
+      {
+        IssueMoveOrder(GetGlobalMousePosition());
+      }
+    }
 
-          if (targetUnit is TestEnemy testEnemy)
-          {
-            GD.Print("Hey, don't touch me!");
-          }
+    private void IssueAttackOrder(CharacterBody2D? target)
+    {
+      if (selected.Count() == 0)
+      {
+         List<Gnome> playerUnits = [.. GetTree().GetNodesInGroup("player").Cast<Gnome>()];
+         foreach (var unit in playerUnits)
+          unit.AttackTarget(target);
+         return;
+      }
 
-          return;
-        }
-        */
-        var targetPosition = GetGlobalMousePosition();
+      foreach (var selectable in selected)
+      {
+        if (selectable.Target is Gnome gnome) 
+          gnome.AttackTarget(target);
+      }
+    }
 
-        foreach (var unit in playerUnits)
-        {
-          unit.MoveTo(targetPosition);
-        }
+    private void IssueMoveOrder(Vector2 position)
+    {
+      if (selected.Count() == 0)
+      {
+         List<Gnome> playerUnits = [.. GetTree().GetNodesInGroup("player").Cast<Gnome>()];
+         foreach (var unit in playerUnits)
+          unit.MoveTo(position);
+         return;
+      }
+
+      foreach (var selectable in selected)
+      {
+        if (selectable.Target is Gnome gnome)
+          gnome.MoveTo(position);
       }
     }
   }

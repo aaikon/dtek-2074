@@ -11,7 +11,8 @@ namespace Game.component
     [Export]
     private ShaderMaterial? outlineMaterial;
 
-    private SelectionController _controller;
+    private bool isHovered;
+    private bool isSelected;
 
     public override void _Ready()
     {
@@ -42,8 +43,21 @@ namespace Game.component
       SelectionController.Instance.ClearHover(this);
     }
 
-    public void SetHovered(bool value) => outlineMaterial?.SetShaderParameter("enabled", value);
+    public void SetHovered(bool value)
+    {
+      isHovered = value;
+      UpdateOutline();
+    }
 
-    public void SetSelected(bool value) => outlineMaterial?.SetShaderParameter("enabled", value);
+    public void SetSelected(bool value)
+    {
+      isSelected = value;
+      UpdateOutline();
+    }
+
+    private void UpdateOutline()
+    {
+      outlineMaterial?.SetShaderParameter("enabled", isHovered || isSelected);
+    }
   }
 }

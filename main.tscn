@@ -29,27 +29,6 @@ position = Vector2(51, 131)
 [node name="Gnome6" parent="." unique_id=952773175 instance=ExtResource("1_ig7tw")]
 position = Vector2(95, 111)
 
-[node name="Gnome7" parent="." unique_id=163086916 instance=ExtResource("1_ig7tw")]
-position = Vector2(25, 84)
-
-[node name="Gnome8" parent="." unique_id=359007405 instance=ExtResource("1_ig7tw")]
-position = Vector2(22, 24)
-
-[node name="Gnome9" parent="." unique_id=56653140 instance=ExtResource("1_ig7tw")]
-position = Vector2(69, 15)
-
-[node name="Gnome10" parent="." unique_id=581600398 instance=ExtResource("1_ig7tw")]
-position = Vector2(63, 60)
-
-[node name="Gnome11" parent="." unique_id=844264557 instance=ExtResource("1_ig7tw")]
-position = Vector2(25, 54)
-
-[node name="Gnome12" parent="." unique_id=839433491 instance=ExtResource("1_ig7tw")]
-position = Vector2(72, 41)
-
-[node name="Gnome13" parent="." unique_id=1658374504 instance=ExtResource("1_ig7tw")]
-position = Vector2(91, 80)
-
 [node name="Gnome" parent="." unique_id=247968834 instance=ExtResource("1_ig7tw")]
 position = Vector2(45, 87)
 
@@ -57,7 +36,6 @@ position = Vector2(45, 87)
 position = Vector2(44, 18)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=808654631]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_ig7tw")
 
 [node name="PlayerController" type="Node2D" parent="." unique_id=1514662437]

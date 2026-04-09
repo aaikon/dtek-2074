@@ -1,3 +1,4 @@
+using System;
 using Game.component;
 using Godot;
 
@@ -14,6 +15,7 @@ namespace Game.unit
     public AnimatedSprite2D Sprite;
 
     private Vector2? targetPosition;
+    private CharacterBody2D targetEntity;
 
     private StateMachine stateMachine = new();
 
@@ -26,23 +28,15 @@ namespace Game.unit
     public override void _Process(double delta)
     {
       stateMachine.Update();
+      UpdateSprite();
     }
 
-    private void StateIdle()
-    {
-      Sprite.Play("idle");
-
-      if (targetPosition != null)
-      {
-
-        stateMachine.SetState(StateMove);
-        return;
-      }
-    }
-
-    private void StateMove()
+    private void UpdateSprite()
     {
       var velocity = velocityComponent.Velocity;
+
+      if (velocity == Vector2.Zero) { Sprite.Play("idle"); return; }
+
       if (Mathf.Abs(velocity.X) > Mathf.Abs(velocity.Y))
       {
         Sprite.Play("move_horizontal");
@@ -50,16 +44,18 @@ namespace Game.unit
       }
       else
       {
-        if (velocity.Y > 0)
-        {
-          Sprite.Play("move_down");
-        }
-        else
-        {
-          Sprite.Play("move_up");
-        }
+        Sprite.Play(velocity.Y > 0 ? "move_down" : "move_up");
       }
+    }
 
+    private void StateIdle()
+    {
+      if (targetPosition != null) stateMachine.SetState(StateMove);
+      if (targetEntity != null)   stateMachine.SetState(StateAttack);
+    }
+
+    private void StateMove()
+    {
       if (targetPosition == null)
       {
         stateMachine.SetState(StateIdle);
@@ -73,19 +69,35 @@ namespace Game.unit
       {
         targetPosition = null;
         stateMachine.SetState(StateIdle);
-        return;
       }
     }
 
     private void StateAttack()
     {
-      // Attack
+      if (targetEntity == null)
+      {
+        stateMachine.SetState(StateIdle);
+        return;
+      }
+
+        pathfindComponent.SetTargetPosition(targetEntity.GlobalPosition);
+        pathfindComponent.FollowPath();
+        velocityComponent.Move(this);
     }
 
     public void MoveTo(Vector2 target)
     {
-      this.targetPosition = target;
+      targetEntity = null;
+      targetPosition = target;
       pathfindComponent.SetTargetPosition(target);
+      stateMachine.SetState(StateMove); 
+    }
+
+    public void AttackTarget(CharacterBody2D target)
+    {
+      targetPosition = null;
+      targetEntity = target;
+      stateMachine.SetState(StateAttack);
     }
   }
 }
