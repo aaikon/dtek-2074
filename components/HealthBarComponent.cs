@@ -12,9 +12,8 @@ namespace Game.component
 
 		public override void _Ready()
 		{
-			HealthBar.Value = healthComponent.Health;
-			HealthBar.MaxValue = healthComponent.MaxHealth;
 			healthComponent.HealthChanged += OnHealthChanged;
+			OnHealthChanged(healthComponent.Health, healthComponent.MaxHealth);
 		}
 
 		private void OnHealthChanged(float health, float maxHealth)

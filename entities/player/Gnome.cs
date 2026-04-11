@@ -30,8 +30,8 @@ namespace Game.unit
 
     public override void _Process(double delta)
     {
-      stateMachine.Update();
       UpdateSprite();
+      stateMachine.Update();
     }
 
     private void UpdateSprite()
@@ -54,7 +54,7 @@ namespace Game.unit
     private void StateIdle()
     {
       if (targetPosition != null) stateMachine.SetState(StateMove);
-      if (targetEntity != null)   stateMachine.SetState(StateAttack);
+      if (targetEntity != null) stateMachine.SetState(StateAttack);
     }
 
     private void StateMove()
@@ -90,7 +90,7 @@ namespace Game.unit
         attackComponent.SetTarget(targetHurtbox);
         attackComponent.Start();
         return;
-      } 
+      }
       else
       {
         attackComponent.Stop();
@@ -107,7 +107,7 @@ namespace Game.unit
       targetEntity = null;
       targetPosition = target;
       pathfindComponent.SetTargetPosition(target);
-      stateMachine.SetState(StateMove); 
+      stateMachine.SetState(StateMove);
     }
 
     public void AttackTarget(CharacterBody2D target)

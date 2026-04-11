@@ -5,8 +5,10 @@ namespace Game.component
   [GlobalClass]
   public partial class HealthComponent : Node
   {
-    [Signal] 
+    [Signal]
     public delegate void HealthChangedEventHandler(float health, float maxHealth);
+    [Signal]
+    public delegate void DamageTakenEventHandler();
 
     [Export]
     public float MaxHealth { get; private set; }
@@ -21,6 +23,7 @@ namespace Game.component
     public void Damage(float damage)
     {
       SetHealth(Health - damage);
+      EmitSignal(SignalName.DamageTaken);
     }
 
     private void SetMaxHealth(float health)

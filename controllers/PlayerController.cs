@@ -35,6 +35,7 @@ namespace Game.controller
 
     private void IssueAttackOrder(CharacterBody2D? target)
     {
+      /*
       if (selected.Count() == 0)
       {
          List<Gnome> playerUnits = [.. GetTree().GetNodesInGroup("player").Cast<Gnome>()];
@@ -42,16 +43,17 @@ namespace Game.controller
           unit.AttackTarget(target);
          return;
       }
-
+      */
       foreach (var selectable in selected)
       {
-        if (selectable.Target is Gnome gnome) 
+        if (selectable.Target is Gnome gnome)
           gnome.AttackTarget(target);
       }
     }
 
     private void IssueMoveOrder(Vector2 position)
     {
+      /*
       if (selected.Count() == 0)
       {
          List<Gnome> playerUnits = [.. GetTree().GetNodesInGroup("player").Cast<Gnome>()];
@@ -59,7 +61,7 @@ namespace Game.controller
           unit.MoveTo(position);
          return;
       }
-
+      */
       foreach (var selectable in selected)
       {
         if (selectable.Target is Gnome gnome)

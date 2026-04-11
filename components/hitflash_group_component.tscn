@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dbk81i01qavhw"]
+
+[ext_resource type="Script" uid="uid://da04wybasp8qk" path="res://components/HitflashGroupComponent.cs" id="1_4t6xn"]
+[ext_resource type="Shader" uid="uid://b07xpu32x60wg" path="res://shaders/HitflashCanvasGroup.gdshader" id="1_ga4or"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5abvb"]
+resource_local_to_scene = true
+shader = ExtResource("1_ga4or")
+shader_parameter/hitflash_color = Color(1, 1, 1, 1)
+shader_parameter/hitflash_on = false
+
+[node name="HitflashGroupComponent" type="CanvasGroup" unique_id=1824532267]
+material = SubResource("ShaderMaterial_5abvb")
+script = ExtResource("1_4t6xn")
+metadata/_custom_type_script = "uid://da04wybasp8qk"

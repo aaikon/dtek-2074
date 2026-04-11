@@ -2,7 +2,25 @@
 
 [ext_resource type="Script" uid="uid://chdkk0f1867xm" path="res://components/HealthBarComponent.cs" id="1_p2cgc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26y1n"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4in4m"]
+bg_color = Color(0.11764706, 0.8862745, 0, 1)
+anti_aliasing = false
+
 [node name="HealthBarComponent" type="Node2D" unique_id=1123927948 node_paths=PackedStringArray("HealthBar")]
+z_index = 4096
 script = ExtResource("1_p2cgc")
 HealthBar = NodePath("ProgressBar")
 
@@ -12,11 +30,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -8.0
-offset_right = 32.0
-offset_bottom = 8.0
+offset_left = -25.0
+offset_top = -5.0
+offset_right = 25.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_26y1n")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4in4m")
+value = 100.0
 show_percentage = false
