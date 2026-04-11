@@ -8,7 +8,7 @@ namespace Game.component
     [Export]
     private HealthComponent healthComponent;
 
-    private void DealDamage(float damage)
+    public void DealDamage(float damage)
     {
       healthComponent.Damage(damage);
     }

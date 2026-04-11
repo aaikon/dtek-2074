@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="3_bs10j"]
 [ext_resource type="Texture2D" uid="uid://bfgadbbpdu770" path="res://sTestEnemy.png" id="3_c708d"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="5_bs10j"]
+[ext_resource type="Script" uid="uid://bnog8t5vijhue" path="res://components/HurtboxComponent.cs" id="6_s8xf6"]
+[ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="7_2cheo"]
+[ext_resource type="PackedScene" uid="uid://i75ot8xqpwqg" path="res://components/health_bar_component.tscn" id="8_22ilw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bs10j"]
 
@@ -37,3 +40,17 @@ shape = SubResource("RectangleShape2D_qxplg")
 script = ExtResource("5_bs10j")
 size = Vector2(6, 4)
 metadata/_custom_type_script = "uid://8b14piof2keb"
+
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1129504832 node_paths=PackedStringArray("healthComponent")]
+script = ExtResource("6_s8xf6")
+healthComponent = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://bnog8t5vijhue"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1559504878]
+script = ExtResource("7_2cheo")
+MaxHealth = 100.0
+metadata/_custom_type_script = "uid://ck4p010nvjrti"
+
+[node name="HealthBarComponent" parent="." unique_id=1127578646 node_paths=PackedStringArray("healthComponent") instance=ExtResource("8_22ilw")]
+position = Vector2(0, -53)
+healthComponent = NodePath("../HealthComponent")

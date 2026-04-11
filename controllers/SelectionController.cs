@@ -49,7 +49,7 @@ namespace Game.controller
                         IsDragging = false;
                         DragRect = default;
                     }
-                }
+                }   
             }
 
             if (@event is InputEventMouseMotion mouseMotion && dragStart.HasValue)
@@ -116,7 +116,7 @@ namespace Game.controller
             foreach (var target in targets)
             {
                 Selected.Add(target);
-                target.SetSelected(true);
+                target.SetSelected(true);             
             }
             EmitSignal(SignalName.SelectionChanged, ToArray());
         }

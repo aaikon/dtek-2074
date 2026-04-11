@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btjk0bftfy3aw" path="res://components/MutationComponent.cs" id="1_ae33f"]
 [ext_resource type="Script" uid="uid://dek7j8gbfahsd" path="res://entities/player/Gnome.cs" id="1_hahaf"]
+[ext_resource type="Script" uid="uid://benrwad8i5oqu" path="res://components/AttackComponent.cs" id="2_e3mxj"]
 [ext_resource type="Script" uid="uid://beu4rd38r5hwv" path="res://components/VelocityComponent.cs" id="3_y1f3r"]
 [ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="5_gdvss"]
 [ext_resource type="Texture2D" uid="uid://bhvmswr7sjgii" path="res://sGnomeMove.png" id="6_7oxhv"]
@@ -182,11 +183,16 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("velocityComponent", "pathfindComponent", "Sprite")]
+[node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("Sprite", "velocityComponent", "pathfindComponent", "attackComponent")]
 script = ExtResource("1_hahaf")
+Sprite = NodePath("AnimatedSprite2D")
 velocityComponent = NodePath("VelocityComponent")
 pathfindComponent = NodePath("PathfindComponent")
-Sprite = NodePath("AnimatedSprite2D")
+attackComponent = NodePath("AttackComponent")
+
+[node name="AttackComponent" type="Node" parent="." unique_id=839602702]
+script = ExtResource("2_e3mxj")
+metadata/_custom_type_script = "uid://benrwad8i5oqu"
 
 [node name="VelocityComponent" type="Node" parent="." unique_id=2007396074]
 script = ExtResource("3_y1f3r")

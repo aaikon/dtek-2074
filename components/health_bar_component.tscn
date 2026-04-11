@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://i75ot8xqpwqg"]
+
+[ext_resource type="Script" uid="uid://chdkk0f1867xm" path="res://components/HealthBarComponent.cs" id="1_p2cgc"]
+
+[node name="HealthBarComponent" type="Node2D" unique_id=1123927948 node_paths=PackedStringArray("HealthBar")]
+script = ExtResource("1_p2cgc")
+HealthBar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2072942636]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+show_percentage = false

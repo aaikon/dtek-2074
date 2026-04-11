@@ -6,13 +6,16 @@ namespace Game.unit
 {
   public partial class Gnome : CharacterBody2D
   {
+    [Export]
+    public AnimatedSprite2D Sprite;
+
 
     [Export]
     private VelocityComponent velocityComponent;
     [Export]
     private PathfindComponent pathfindComponent;
     [Export]
-    public AnimatedSprite2D Sprite;
+    private AttackComponent attackComponent;
 
     private Vector2? targetPosition;
     private CharacterBody2D targetEntity;
@@ -76,17 +79,31 @@ namespace Game.unit
     {
       if (targetEntity == null)
       {
+        attackComponent.Stop();
         stateMachine.SetState(StateIdle);
         return;
       }
 
-        pathfindComponent.SetTargetPosition(targetEntity.GlobalPosition);
-        pathfindComponent.FollowPath();
-        velocityComponent.Move(this);
+      if (attackComponent.IsInRange(targetEntity.GlobalPosition, GlobalPosition))
+      {
+        var targetHurtbox = targetEntity.GetNodeOrNull<HurtboxComponent>("HurtboxComponent");
+        attackComponent.SetTarget(targetHurtbox);
+        attackComponent.Start();
+        return;
+      } 
+      else
+      {
+        attackComponent.Stop();
+      }
+
+      pathfindComponent.SetTargetPosition(targetEntity.GlobalPosition);
+      pathfindComponent.FollowPath();
+      velocityComponent.Move(this);
     }
 
     public void MoveTo(Vector2 target)
     {
+      attackComponent.Stop();
       targetEntity = null;
       targetPosition = target;
       pathfindComponent.SetTargetPosition(target);
