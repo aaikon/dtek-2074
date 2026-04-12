@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="9_tt3j3"]
 [ext_resource type="Script" uid="uid://b7bq7esxivoos" path="res://components/EntityDataComponent.cs" id="10_cxr6r"]
 [ext_resource type="Texture2D" uid="uid://cnu6tielx5pge" path="res://sGnomeAttack.png" id="11_cxr6r"]
+[ext_resource type="Shader" uid="uid://b07xpu32x60wg" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
 [ext_resource type="PackedScene" uid="uid://dbk81i01qavhw" path="res://components/hitflash_group_component.tscn" id="15_8bkqm"]
 
 [sub_resource type="Resource" id="Resource_t18wy"]
@@ -28,6 +29,12 @@ radius = 6.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdvss"]
 radius = 5.999984
 height = 11.999968
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_14oyx"]
+resource_local_to_scene = true
+shader = ExtResource("14_x52wu")
+shader_parameter/hitflash_color = Color(1, 1, 1, 1)
+shader_parameter/hitflash_on = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e3mxj"]
 atlas = ExtResource("11_cxr6r")
@@ -327,12 +334,11 @@ metadata/_custom_type_script = "uid://8b14piof2keb"
 rotation = -1.568477
 shape = SubResource("CapsuleShape2D_gdvss")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1025064082]
-position_smoothing_enabled = true
-
 [node name="Visuals" type="Node2D" parent="." unique_id=1424717200]
 
-[node name="HitflashGroupComponent" parent="Visuals" unique_id=1824532267 instance=ExtResource("15_8bkqm")]
+[node name="HitflashGroupComponent" parent="Visuals" unique_id=1824532267 node_paths=PackedStringArray("healthComponent") instance=ExtResource("15_8bkqm")]
+material = SubResource("ShaderMaterial_14oyx")
+healthComponent = NodePath("../../HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals/HitflashGroupComponent" unique_id=1733814596]
 texture_filter = 1

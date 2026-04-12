@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://61dv82ft2vey" path="res://entities/enemy/test_enemy.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://entities/player/gnome.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://byuploho2lccc" path="res://controllers/PlayerController.cs" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bakwa5tyj6rty" path="res://gui/camera/DynamicCamera.cs" id="5_lquwl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ig7tw"]
 vertices = PackedVector2Array(1142, 638, 10, 638, 10, 10, 1142, 10)
@@ -41,3 +42,10 @@ navigation_polygon = SubResource("NavigationPolygon_ig7tw")
 [node name="PlayerController" type="Node2D" parent="." unique_id=1514662437]
 script = ExtResource("2_0xm2m")
 metadata/_custom_type_script = "uid://byuploho2lccc"
+
+[node name="DynamicCamera" type="Camera2D" parent="." unique_id=472096751 node_paths=PackedStringArray("targets")]
+script = ExtResource("5_lquwl")
+targets = [NodePath("../Gnome3"), NodePath("../Gnome4"), NodePath("../Gnome5"), NodePath("../Gnome6"), NodePath("../Gnome"), NodePath("../Gnome2")]
+padding = 60.0
+maxZoom = 100.0
+metadata/_custom_type_script = "uid://bakwa5tyj6rty"
