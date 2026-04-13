@@ -7,17 +7,20 @@ namespace Game.component
   {
     [Export]
     private HealthComponent healthComponent;
+    [Export]
+    private KnockbackComponent knockbackComponent;
 
-    public void DealDamage(float damage)
+    public void Attack(Attack attack)
     {
-      healthComponent.Damage(damage);
+      healthComponent.Damage(attack.damage);
+      knockbackComponent.Knockback(attack.knockback);
     }
 
     private void OnAreaEntered(Area2D otherArea)
     {
       if (otherArea is HitboxComponent hitboxComponent)
       {
-        DealDamage(hitboxComponent.Damage);
+        Attack(hitboxComponent.Attack);
       }
     }
   }

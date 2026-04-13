@@ -9,13 +9,15 @@
 [ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="7_2cheo"]
 [ext_resource type="PackedScene" uid="uid://dbk81i01qavhw" path="res://components/hitflash_group_component.tscn" id="8_1q34n"]
 [ext_resource type="PackedScene" uid="uid://i75ot8xqpwqg" path="res://components/health_bar_component.tscn" id="8_22ilw"]
+[ext_resource type="Script" uid="uid://csjks6afs5upq" path="res://components/KnockbackComponent.cs" id="10_ylwyv"]
+[ext_resource type="Script" uid="uid://beu4rd38r5hwv" path="res://components/VelocityComponent.cs" id="11_clehb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bs10j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxplg"]
 size = Vector2(24, 24)
 
-[sub_resource type="Shader" id="Shader_ylwyv"]
+[sub_resource type="Shader" id="Shader_clehb"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 render_mode unshaded;
@@ -31,14 +33,15 @@ void fragment() {
 	COLOR = vec4(final_rgb, original_color.a);
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_clehb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eysyp"]
 resource_local_to_scene = true
-shader = SubResource("Shader_ylwyv")
+shader = SubResource("Shader_clehb")
 shader_parameter/hitflash_color = Color(1, 1, 1, 1)
 shader_parameter/hitflash_on = false
 
-[node name="TestEnemy" type="CharacterBody2D" unique_id=2135266261]
+[node name="TestEnemy" type="CharacterBody2D" unique_id=2135266261 node_paths=PackedStringArray("velocityComponent")]
 script = ExtResource("1_gp0w8")
+velocityComponent = NodePath("VelocityComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1076161956]
 shape = SubResource("CircleShape2D_bs10j")
@@ -59,9 +62,10 @@ script = ExtResource("5_bs10j")
 size = Vector2(6, 4)
 metadata/_custom_type_script = "uid://8b14piof2keb"
 
-[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1129504832 node_paths=PackedStringArray("healthComponent")]
+[node name="HurtboxComponent" type="Area2D" parent="." unique_id=1129504832 node_paths=PackedStringArray("healthComponent", "knockbackComponent")]
 script = ExtResource("6_s8xf6")
 healthComponent = NodePath("../HealthComponent")
+knockbackComponent = NodePath("../KnockbackComponent")
 metadata/_custom_type_script = "uid://bnog8t5vijhue"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1559504878]
@@ -70,16 +74,27 @@ MaxHealth = 100.0
 metadata/_custom_type_script = "uid://ck4p010nvjrti"
 
 [node name="HealthBarComponent" parent="." unique_id=1127578646 node_paths=PackedStringArray("healthComponent") instance=ExtResource("8_22ilw")]
+z_index = 0
 position = Vector2(0, -32)
 healthComponent = NodePath("../HealthComponent")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1106389212]
 
 [node name="HitflashGroupComponent" parent="Visuals" unique_id=1824532267 node_paths=PackedStringArray("healthComponent") instance=ExtResource("8_1q34n")]
-material = SubResource("ShaderMaterial_clehb")
+material = SubResource("ShaderMaterial_eysyp")
 healthComponent = NodePath("../../HealthComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=637508398]
 material = ExtResource("2_c708d")
 position = Vector2(0, -8)
 texture = ExtResource("3_c708d")
+
+[node name="KnockbackComponent" type="Node" parent="." unique_id=261675827 node_paths=PackedStringArray("velocityComponent")]
+script = ExtResource("10_ylwyv")
+velocityComponent = NodePath("../VelocityComponent")
+metadata/_custom_type_script = "uid://csjks6afs5upq"
+
+[node name="VelocityComponent" type="Node" parent="." unique_id=1514514801]
+script = ExtResource("11_clehb")
+acceleration = 0.1
+metadata/_custom_type_script = "uid://beu4rd38r5hwv"

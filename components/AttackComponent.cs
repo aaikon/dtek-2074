@@ -6,6 +6,8 @@ namespace Game.component
     public partial class AttackComponent : Node
     {
         [Export]
+        private Node2D owner;
+        [Export]
         private float range = 30f;
         [Export]
         private float damage = 1f;
@@ -51,7 +53,7 @@ namespace Game.component
 
         private void OnTimerTimeout()
         {
-            target?.DealDamage(damage);
+            target?.Attack(new Attack(damage, (target.GlobalPosition - owner.GlobalPosition).Normalized() * 100));
         }
     }
 }
