@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="9_tt3j3"]
 [ext_resource type="Script" uid="uid://b7bq7esxivoos" path="res://components/EntityDataComponent.cs" id="10_cxr6r"]
 [ext_resource type="Texture2D" uid="uid://cnu6tielx5pge" path="res://sGnomeAttack.png" id="11_cxr6r"]
-[ext_resource type="Shader" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
+[ext_resource type="Shader" uid="uid://b07xpu32x60wg" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
 [ext_resource type="PackedScene" uid="uid://dbk81i01qavhw" path="res://components/hitflash_group_component.tscn" id="15_8bkqm"]
 
 [sub_resource type="Resource" id="Resource_t18wy"]
@@ -270,12 +270,19 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("Sprite", "velocityComponent", "pathfindComponent", "attackComponent")]
+[node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("Sprite", "healthComponent", "velocityComponent", "pathfindComponent", "attackComponent")]
 script = ExtResource("1_hahaf")
 Sprite = NodePath("Visuals/HitflashGroupComponent/AnimatedSprite2D")
+healthComponent = NodePath("HealthComponent")
 velocityComponent = NodePath("VelocityComponent")
 pathfindComponent = NodePath("PathfindComponent")
 attackComponent = NodePath("AttackComponent")
+
+[node name="ShadowComponent" type="Node2D" parent="." unique_id=852832776]
+texture_filter = 1
+script = ExtResource("9_tt3j3")
+size = Vector2(6, 4)
+metadata/_custom_type_script = "uid://8b14piof2keb"
 
 [node name="AttackComponent" type="Node" parent="." unique_id=839602702 node_paths=PackedStringArray("owner")]
 script = ExtResource("2_e3mxj")
@@ -325,17 +332,12 @@ metadata/_custom_type_script = "uid://c6emffiokyt8t"
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_m8bbl")
 
-[node name="ShadowComponent" type="Node2D" parent="." unique_id=852832776]
-z_index = -1000
-script = ExtResource("9_tt3j3")
-size = Vector2(6, 4)
-metadata/_custom_type_script = "uid://8b14piof2keb"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298348590]
 rotation = -1.568477
 shape = SubResource("CapsuleShape2D_gdvss")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1424717200]
+texture_filter = 1
 
 [node name="HitflashGroupComponent" parent="Visuals" unique_id=1824532267 node_paths=PackedStringArray("healthComponent") instance=ExtResource("15_8bkqm")]
 material = SubResource("ShaderMaterial_x52wu")

@@ -9,7 +9,8 @@ namespace Game.unit
     [Export]
     public AnimatedSprite2D Sprite;
 
-
+    [Export]
+    private HealthComponent healthComponent;
     [Export]
     private VelocityComponent velocityComponent;
     [Export]
@@ -26,6 +27,9 @@ namespace Game.unit
     {
       AddToGroup("player");
       stateMachine.SetState(StateIdle);
+
+      PlayerHealthBar.Instance.Add(healthComponent);
+      healthComponent.HealthChanged += PlayerHealthBar.Instance.OnHealthChanged;
     }
 
     public override void _Process(double delta)

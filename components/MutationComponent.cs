@@ -1,16 +1,20 @@
 using System.Collections.Generic;
 using Godot;
 using Game.mutation;
+using Godot.Collections;
 
 namespace Game.component
 {
   [GlobalClass]
   public partial class MutationComponent : Node
   {
+    [Signal]
+    public delegate void MutationsChangedEventHandler(Array<Mutation> mutations);
+
     [Export]
     public VelocityComponent VelocityComponent;
 
-    private List<Mutation> mutations = new();
+    public Array<Mutation> Mutations = new();
 
     public override void _Ready()
     {
@@ -31,8 +35,9 @@ namespace Game.component
     {
       if (node is Mutation mutation)
       {
-        mutations.Add(mutation);
+        Mutations.Add(mutation);
         mutation.Apply(this);
+        EmitSignal(SignalName.MutationsChanged, Mutations);
       }
       else
       {

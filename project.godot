@@ -21,16 +21,20 @@ SelectionController="*uid://xrwln3x4ss2g"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
 [dotnet]
 
 project/assembly_name="DTEK-2074"
+
+[gui]
+
+theme/default_font_antialiasing=0
 
 [input]
 
