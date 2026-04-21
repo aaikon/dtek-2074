@@ -18,7 +18,7 @@ public partial class SelectionPanel : Control
     [Export]
     private GridContainer mutationList;
 
-    private Array<TrackedEntityData> trackedEntities = [];
+    private Dictionary<Node, TrackedEntityData> trackedEntities = [];
 
     public void SetEntityData(EntityData? data)
     {
@@ -38,20 +38,31 @@ public partial class SelectionPanel : Control
     {
     }
 
-    private partial class TrackedEntityData : GodotObject
+    private partial class TrackedEntityData(EntityData? entityData, float? health, float? maxHealth) : GodotObject
     {
-        public Node entity;
-        public float health;
-        public float maxHealth;
+
     }
 
-    public void SetTracked(Array<SelectableComponent> selected)
+    public void SetTracked(Array<Node> targets)
     {
-        foreach (var s in selected)
+        foreach (var t in targets)
         {
-            var target = s.Target;
+            var entityDataComponent = t.GetNodeOrNull<EntityDataComponent>("EntityDataComponent");
+            var healthComponent = t.GetNodeOrNull<HealthComponent>("HealthComponent");
 
-            trackedEntities.Add()
+            if (healthComponent != null)
+            {
+                healthComponent.HealthChanged += selectionPanel.OnHealthChanged;
+                selectionPanel.OnHealthChanged(healthComponent.Health, healthComponent.MaxHealth);
+            }
+            trackedEntities.Add(
+                t,
+                new TrackedEntityData(
+                    entityDataComponent?.Data ?? null,
+                    healthComponent?.Health ?? null,
+                    healthComponent?.MaxHealth ?? null
+                )
+            );
         }
     }
 }

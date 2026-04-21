@@ -37,9 +37,16 @@ public partial class Hud : CanvasLayer
             animationPlayer.Play("selection_out");
             return;
         }
-        
+
         animationPlayer.Play("selection_in");
-        selectionPanel.SetTracked(selected);
+
+        Array<Node> targets = [];
+        foreach (var s in selected)
+        {
+            if (s.Target != null)
+                targets.Add(s.Target);
+        }
+        selectionPanel.SetTracked(targets);
 
         /*
         else if (selected.Count == 1)
