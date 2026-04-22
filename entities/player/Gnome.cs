@@ -7,7 +7,7 @@ namespace Game.unit
   public partial class Gnome : CharacterBody2D
   {
     [Export]
-    public AnimatedSprite2D Sprite;
+    private AnimationPlayer animationPlayer;
 
     [Export]
     private HealthComponent healthComponent;
@@ -42,16 +42,17 @@ namespace Game.unit
     {
       var velocity = velocityComponent.Velocity;
 
-      if (velocity == Vector2.Zero) { Sprite.Play("idle"); return; }
-
-      if (Mathf.Abs(velocity.X) > Mathf.Abs(velocity.Y))
+      if (velocity == Vector2.Zero)
       {
-        Sprite.Play("move_horizontal");
-        Sprite.Scale = new Vector2(Mathf.Sign(velocity.X), 1);
+        if (animationPlayer.CurrentAnimation == "idle") return;
+        animationPlayer.Play("RESET");
+        animationPlayer.Queue("idle");
       }
       else
       {
-        Sprite.Play(velocity.Y > 0 ? "move_down" : "move_up");
+        if (animationPlayer.CurrentAnimation == "run") return;
+        animationPlayer.Play("RESET");
+        animationPlayer.Queue("run");
       }
     }
 

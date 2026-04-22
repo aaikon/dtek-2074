@@ -79,7 +79,7 @@ selectionPanel = NodePath("SelectionPanel")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=487487011]
 libraries/ = SubResource("AnimationLibrary_i4ntl")
 
-[node name="SelectionPanel" type="Control" parent="." unique_id=1216467851 node_paths=PackedStringArray("nameLabel", "portraitRect", "healthBar", "healthLabel", "mutationList")]
+[node name="SelectionPanel" type="Control" parent="." unique_id=1216467851 node_paths=PackedStringArray("nameLabel", "portraitRect", "healthBar", "healthLabel")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -100.0
@@ -90,7 +90,6 @@ nameLabel = NodePath("NameLabel")
 portraitRect = NodePath("PortraitRect")
 healthBar = NodePath("HealthBar")
 healthLabel = NodePath("HealthLabel")
-mutationList = NodePath("MutationList")
 
 [node name="TextureRect" type="TextureRect" parent="SelectionPanel" unique_id=1069897586]
 layout_mode = 0
@@ -144,14 +143,6 @@ offset_top = 26.0
 offset_right = 88.0
 offset_bottom = 40.0
 label_settings = SubResource("LabelSettings_rllpj")
-
-[node name="MutationList" type="GridContainer" parent="SelectionPanel" unique_id=1105257835]
-layout_direction = 1
-layout_mode = 0
-offset_left = 8.0
-offset_top = 48.0
-offset_right = 88.0
-offset_bottom = 104.0
 
 [node name="SelectionBox" type="Control" parent="." unique_id=1108535191]
 layout_mode = 3

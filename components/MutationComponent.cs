@@ -8,9 +8,6 @@ namespace Game.component
   [GlobalClass]
   public partial class MutationComponent : Node
   {
-    [Signal]
-    public delegate void MutationsChangedEventHandler(Array<Mutation> mutations);
-
     [Export]
     public VelocityComponent VelocityComponent;
 
@@ -37,7 +34,6 @@ namespace Game.component
       {
         Mutations.Add(mutation);
         mutation.Apply(this);
-        EmitSignal(SignalName.MutationsChanged, Mutations);
       }
       else
       {

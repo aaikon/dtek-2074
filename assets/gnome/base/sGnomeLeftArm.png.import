@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw6csqylc18on"
-path="res://.godot/imported/sGnomeIcon.png-647960a105b609c3fdf01d534a3ae20f.ctex"
+uid="uid://cb1vx8vasijl8"
+path="res://.godot/imported/sGnomeLeftArm.png-e92c8d236be22215fb8cdeb8e7f32f9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sGnomeIcon.png"
-dest_files=["res://.godot/imported/sGnomeIcon.png-647960a105b609c3fdf01d534a3ae20f.ctex"]
+source_file="res://assets/gnome/base/sGnomeLeftArm.png"
+dest_files=["res://.godot/imported/sGnomeLeftArm.png-e92c8d236be22215fb8cdeb8e7f32f9e.ctex"]
 
 [params]
 

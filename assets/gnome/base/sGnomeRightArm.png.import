@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnu6tielx5pge"
-path="res://.godot/imported/sGnomeAttack.png-7f2faaa683471ffca999c74de1782b2b.ctex"
+uid="uid://fr74hw7jn5ua"
+path="res://.godot/imported/sGnomeRightArm.png-19c9181a60ad5c2c053e24c5da457241.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sGnomeAttack.png"
-dest_files=["res://.godot/imported/sGnomeAttack.png-7f2faaa683471ffca999c74de1782b2b.ctex"]
+source_file="res://assets/gnome/base/sGnomeRightArm.png"
+dest_files=["res://.godot/imported/sGnomeRightArm.png-19c9181a60ad5c2c053e24c5da457241.ctex"]
 
 [params]
 
