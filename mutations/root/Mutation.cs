@@ -4,7 +4,7 @@ using Game.component;
 namespace Game.mutation
 {
   [GlobalClass]
-  public abstract partial class Mutation : Node
+  public partial class Mutation : Node
   {
     private MutationComponent mutationComponent;
 

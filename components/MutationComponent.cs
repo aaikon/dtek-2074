@@ -10,6 +10,8 @@ namespace Game.component
   {
     [Export]
     public VelocityComponent VelocityComponent;
+    [Export]
+    public Sprite2D HatSprite;
 
     public Array<Mutation> Mutations = new();
 

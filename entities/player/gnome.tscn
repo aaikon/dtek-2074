@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="7_e1tyj"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="9_tt3j3"]
 [ext_resource type="Script" uid="uid://b7bq7esxivoos" path="res://components/EntityDataComponent.cs" id="10_cxr6r"]
-[ext_resource type="Shader" uid="uid://b07xpu32x60wg" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
+[ext_resource type="Shader" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
 [ext_resource type="PackedScene" uid="uid://dbk81i01qavhw" path="res://components/hitflash_group_component.tscn" id="15_8bkqm"]
 [ext_resource type="Texture2D" uid="uid://dawmkcuux01lb" path="res://assets/gnome/base/sGnomeBody.png" id="15_pqyhb"]
 [ext_resource type="Texture2D" uid="uid://b86hn74f0s0ve" path="res://assets/gnome/base/sGnomeHead.png" id="16_oc7t1"]
@@ -166,19 +166,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.46666667, 0.93333334),
 "transitions": PackedFloat32Array(0.7320443, 1.8660719, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.7), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Vector2(1, 1), Vector2(1.286, 0.9), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_oc7t1"]
@@ -320,9 +308,10 @@ script = ExtResource("5_gdvss")
 MaxHealth = 10.0
 metadata/_custom_type_script = "uid://ck4p010nvjrti"
 
-[node name="MutationComponent" type="Node" parent="." unique_id=1016272616 node_paths=PackedStringArray("VelocityComponent")]
+[node name="MutationComponent" type="Node" parent="." unique_id=1016272616 node_paths=PackedStringArray("VelocityComponent", "HatSprite")]
 script = ExtResource("1_ae33f")
 VelocityComponent = NodePath("../VelocityComponent")
+HatSprite = NodePath("../Visuals/HitflashGroupComponent/Hat")
 
 [node name="EntityDataComponent" type="Node" parent="." unique_id=613084850]
 script = ExtResource("10_cxr6r")

@@ -69,13 +69,13 @@ tile_set = SubResource("TileSet_lquwl")
 navigation_polygon = SubResource("NavigationPolygon_ig7tw")
 
 [node name="TestEnemy" parent="World" unique_id=2135266261 instance=ExtResource("1_h2yge")]
-position = Vector2(135, 52)
+position = Vector2(113, 113)
 
 [node name="Gnome" parent="World" unique_id=1459455642 instance=ExtResource("1_ig7tw")]
-position = Vector2(22, 59)
+position = Vector2(34, 140)
 
 [node name="Gnome2" parent="World" unique_id=1315614580 instance=ExtResource("1_ig7tw")]
-position = Vector2(58, 55)
+position = Vector2(182, 137)
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=180849893]
 position = Vector2(112, 112)
