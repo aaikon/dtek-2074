@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8xnsd8j0ce5b"
-path="res://.godot/imported/sGnomeNew.png-36ac51bafcbd1ae64cbdfa5af7b5127b.ctex"
+uid="uid://711gd7dcxvfs"
+path="res://.godot/imported/sGrassTileset.png-57f77b100f7b4df085b4022d9507a132.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sGnomeNew.png"
-dest_files=["res://.godot/imported/sGnomeNew.png-36ac51bafcbd1ae64cbdfa5af7b5127b.ctex"]
+source_file="res://assets/sGrassTileset.png"
+dest_files=["res://.godot/imported/sGrassTileset.png-57f77b100f7b4df085b4022d9507a132.ctex"]
 
 [params]
 

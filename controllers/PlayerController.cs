@@ -19,17 +19,29 @@ namespace Game.controller
 
     public override void _UnhandledInput(InputEvent @event)
     {
-      if (!@event.IsActionPressed("move")) return;
-
-      var hovered = SelectionController.Instance.Hovered;
-
-      if (hovered?.Target?.IsInGroup("enemies") == true)
+      if (@event.IsActionPressed("select"))
       {
-        IssueAttackOrder(hovered.Target as CharacterBody2D);
+        var hovered = SelectionController.Instance.Hovered;
+        
+        if (hovered.Target is MutationPickup mutationPickup)
+        {
+          MutationController.Instance.AddMutation(mutationPickup.Mutation);
+          mutationPickup.Disable();
+        }
       }
-      else
+
+      if (@event.IsActionPressed("move"))
       {
-        IssueMoveOrder(GetGlobalMousePosition());
+        var hovered = SelectionController.Instance.Hovered;
+
+        if (hovered?.Target?.IsInGroup("enemies") == true)
+        {
+          IssueAttackOrder(hovered.Target as CharacterBody2D);
+        }
+        else
+        {
+          IssueMoveOrder(GetGlobalMousePosition());
+        }
       }
     }
 

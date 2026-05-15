@@ -6,27 +6,32 @@
 [ext_resource type="Script" uid="uid://beu4rd38r5hwv" path="res://components/VelocityComponent.cs" id="3_y1f3r"]
 [ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="5_gdvss"]
 [ext_resource type="Script" uid="uid://dyb7v154fjvka" path="res://components/PathfindComponent.cs" id="6_5142c"]
-[ext_resource type="Texture2D" uid="uid://d12yn1jyb13xv" path="res://icon.svg" id="6_cxr6r"]
-[ext_resource type="Material" uid="uid://dpem1p57p8tg3" path="res://materials/OutlineMaterial.tres" id="6_tt3j3"]
+[ext_resource type="Texture2D" uid="uid://d12yn1jyb13xv" path="res://assets/icon.svg" id="6_cxr6r"]
 [ext_resource type="Script" uid="uid://dcxqniaxangtt" path="res://resources/entity-data/EntityData.cs" id="7_cxr6r"]
 [ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="7_e1tyj"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="9_tt3j3"]
 [ext_resource type="Script" uid="uid://b7bq7esxivoos" path="res://components/EntityDataComponent.cs" id="10_cxr6r"]
-[ext_resource type="Shader" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
+[ext_resource type="Texture2D" uid="uid://byy6li0jy6j7c" path="res://assets/gnome/base/sGnomeBody.png" id="14_5r4pc"]
+[ext_resource type="Shader" uid="uid://b07xpu32x60wg" path="res://shaders/HitflashCanvasGroup.gdshader" id="14_x52wu"]
 [ext_resource type="PackedScene" uid="uid://dbk81i01qavhw" path="res://components/hitflash_group_component.tscn" id="15_8bkqm"]
-[ext_resource type="Texture2D" uid="uid://dawmkcuux01lb" path="res://assets/gnome/base/sGnomeBody.png" id="15_pqyhb"]
-[ext_resource type="Texture2D" uid="uid://b86hn74f0s0ve" path="res://assets/gnome/base/sGnomeHead.png" id="16_oc7t1"]
-[ext_resource type="Texture2D" uid="uid://8ra342m3ubg" path="res://assets/gnome/base/sGnomeLeftLeg.png" id="17_4w8ti"]
-[ext_resource type="Texture2D" uid="uid://di08u7n4jbw32" path="res://assets/gnome/base/sGnomeRightLeg.png" id="18_ys28v"]
-[ext_resource type="Texture2D" uid="uid://cb1vx8vasijl8" path="res://assets/gnome/base/sGnomeLeftArm.png" id="19_2xtqv"]
-[ext_resource type="Texture2D" uid="uid://fr74hw7jn5ua" path="res://assets/gnome/base/sGnomeRightArm.png" id="20_ue74a"]
-[ext_resource type="Texture2D" uid="uid://iv0xwqe3pjrf" path="res://assets/gnome/base/sGnomeHat.png" id="21_ebvow"]
+[ext_resource type="Texture2D" uid="uid://cn5leycnbf44t" path="res://assets/gnome/base/sGnomeLeftLeg.png" id="15_pqyhb"]
+[ext_resource type="Texture2D" uid="uid://b0egseaws3l1j" path="res://assets/gnome/base/sGnomeRightLeg.png" id="16_oc7t1"]
+[ext_resource type="Texture2D" uid="uid://wrvynf83fxfi" path="res://assets/gnome/base/sGnomeLeftArm.png" id="17_4w8ti"]
+[ext_resource type="Texture2D" uid="uid://ckk6p6n5o7iqa" path="res://assets/gnome/base/sGnomeHat.png" id="18_ys28v"]
+[ext_resource type="Texture2D" uid="uid://40paxokcrnm7" path="res://assets/gnome/base/sGnomeFace.png" id="19_2xtqv"]
+[ext_resource type="Texture2D" uid="uid://2qdm0df7r4q0" path="res://assets/gnome/base/sGnomeRightArm.png" id="20_ue74a"]
 
 [sub_resource type="Resource" id="Resource_t18wy"]
 script = ExtResource("7_cxr6r")
 Name = "Gnome"
 Portrait = ExtResource("6_cxr6r")
 metadata/_custom_type_script = "uid://dcxqniaxangtt"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqyhb"]
+resource_local_to_scene = true
+shader = ExtResource("14_x52wu")
+shader_parameter/hitflash_color = Color(1, 1, 1, 1)
+shader_parameter/hitflash_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m8bbl"]
 radius = 11.045361
@@ -35,7 +40,7 @@ radius = 11.045361
 radius = 4.0
 height = 14.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqyhb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5r4pc"]
 resource_local_to_scene = true
 shader = ExtResource("14_x52wu")
 shader_parameter/hitflash_color = Color(1, 1, 1, 1)
@@ -58,7 +63,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/HitflashGroupComponent/Head:frame")
+tracks/1/path = NodePath("Visuals/HitflashGroupComponent/LeftLeg:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -70,7 +75,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/HitflashGroupComponent/LeftLeg:frame")
+tracks/2/path = NodePath("Visuals/HitflashGroupComponent/RightLeg:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -82,7 +87,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/HitflashGroupComponent/RightLeg:frame")
+tracks/3/path = NodePath("Visuals/HitflashGroupComponent/LeftArm:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -94,7 +99,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/HitflashGroupComponent/LeftArm:frame")
+tracks/4/path = NodePath("Visuals/HitflashGroupComponent/Hat:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -106,7 +111,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/HitflashGroupComponent/RightArm:frame")
+tracks/5/path = NodePath("Visuals/HitflashGroupComponent/Face:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -118,7 +123,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/HitflashGroupComponent/Hat:frame")
+tracks/6/path = NodePath("Visuals/HitflashGroupComponent/RightArm:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -127,53 +132,11 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visuals:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Visuals:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_4w8ti"]
-resource_name = "idle"
-loop_mode = 1
-step = 0.06666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.46666667, 0.93333334),
-"transitions": PackedFloat32Array(0.7320443, 1.8660719, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.286, 0.9), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_oc7t1"]
-resource_name = "run"
-length = 0.33333752
-loop_mode = 1
-step = 0.125
+resource_name = "attack"
+length = 0.3333417
+step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -181,7 +144,96 @@ tracks/0/path = NodePath("Visuals/HitflashGroupComponent/Body:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/HitflashGroupComponent/LeftLeg:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/HitflashGroupComponent/RightLeg:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/HitflashGroupComponent/LeftArm:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/HitflashGroupComponent/Hat:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visuals/HitflashGroupComponent/Face:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/HitflashGroupComponent/RightArm:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.16666666, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_5r4pc"]
+resource_name = "idle"
+length = 0.66667503
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/HitflashGroupComponent/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -189,11 +241,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/HitflashGroupComponent/Head:frame")
+tracks/1/path = NodePath("Visuals/HitflashGroupComponent/LeftLeg:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -201,11 +253,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/HitflashGroupComponent/LeftLeg:frame")
+tracks/2/path = NodePath("Visuals/HitflashGroupComponent/RightLeg:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.1666667, 0.25),
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -213,11 +265,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/HitflashGroupComponent/RightLeg:frame")
+tracks/3/path = NodePath("Visuals/HitflashGroupComponent/LeftArm:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -225,11 +277,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/HitflashGroupComponent/LeftArm:frame")
+tracks/4/path = NodePath("Visuals/HitflashGroupComponent/Hat:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -237,11 +289,11 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/HitflashGroupComponent/RightArm:frame")
+tracks/5/path = NodePath("Visuals/HitflashGroupComponent/Face:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -249,42 +301,121 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/HitflashGroupComponent/Hat:frame")
+tracks/6/path = NodePath("Visuals/HitflashGroupComponent/RightArm:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25),
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Visuals:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.15625),
-"transitions": PackedFloat32Array(0.0693482, 0.0693482),
-"update": 0,
-"values": [0.02617993877991494, -0.02617993877991494]
+
+[sub_resource type="Animation" id="Animation_4w8ti"]
+resource_name = "move"
+length = 0.66667503
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/HitflashGroupComponent/Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/HitflashGroupComponent/LeftLeg:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/HitflashGroupComponent/RightLeg:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/HitflashGroupComponent/LeftArm:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/HitflashGroupComponent/Hat:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visuals/HitflashGroupComponent/Face:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/HitflashGroupComponent/RightArm:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.16666664, 0.3333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 8]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4w8ti"]
 _data = {
 &"RESET": SubResource("Animation_pqyhb"),
-&"idle": SubResource("Animation_4w8ti"),
-&"run": SubResource("Animation_oc7t1")
+&"attack": SubResource("Animation_oc7t1"),
+&"idle": SubResource("Animation_5r4pc"),
+&"move": SubResource("Animation_4w8ti")
 }
 
-[node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("animationPlayer", "healthComponent", "velocityComponent", "pathfindComponent", "attackComponent")]
+[node name="Gnome" type="CharacterBody2D" unique_id=1459455642 node_paths=PackedStringArray("animationPlayer", "healthComponent", "velocityComponent", "pathfindComponent", "attackComponent", "visuals")]
 script = ExtResource("1_hahaf")
 animationPlayer = NodePath("AnimationPlayer")
 healthComponent = NodePath("HealthComponent")
 velocityComponent = NodePath("VelocityComponent")
 pathfindComponent = NodePath("PathfindComponent")
 attackComponent = NodePath("AttackComponent")
+visuals = NodePath("Visuals")
 
 [node name="ShadowComponent" type="Node2D" parent="." unique_id=852832776]
 texture_filter = 1
@@ -308,10 +439,17 @@ script = ExtResource("5_gdvss")
 MaxHealth = 10.0
 metadata/_custom_type_script = "uid://ck4p010nvjrti"
 
-[node name="MutationComponent" type="Node" parent="." unique_id=1016272616 node_paths=PackedStringArray("VelocityComponent", "HatSprite")]
+[node name="MutationComponent" type="Node" parent="." unique_id=1016272616 node_paths=PackedStringArray("VelocityComponent", "AttackComponent", "HatSprite", "FaceSprite", "RightArmSprite", "LeftArmSprite", "RightLegSprite", "LeftLegSprite", "Back")]
 script = ExtResource("1_ae33f")
 VelocityComponent = NodePath("../VelocityComponent")
+AttackComponent = NodePath("../AttackComponent")
 HatSprite = NodePath("../Visuals/HitflashGroupComponent/Hat")
+FaceSprite = NodePath("../Visuals/HitflashGroupComponent/Face")
+RightArmSprite = NodePath("../Visuals/HitflashGroupComponent/RightArm")
+LeftArmSprite = NodePath("../Visuals/HitflashGroupComponent/LeftArm")
+RightLegSprite = NodePath("../Visuals/HitflashGroupComponent/RightLeg")
+LeftLegSprite = NodePath("../Visuals/HitflashGroupComponent/LeftLeg")
+Back = NodePath("../Visuals/HitflashGroupComponent/Back")
 
 [node name="EntityDataComponent" type="Node" parent="." unique_id=613084850]
 script = ExtResource("10_cxr6r")
@@ -332,10 +470,9 @@ max_neighbors = 30
 debug_enabled = true
 
 [node name="SelectableComponent" type="Area2D" parent="." unique_id=2009734818 node_paths=PackedStringArray("Target")]
-material = ExtResource("6_tt3j3")
 script = ExtResource("7_e1tyj")
 Target = NodePath("..")
-outlineMaterial = ExtResource("6_tt3j3")
+outlineMaterial = SubResource("ShaderMaterial_pqyhb")
 metadata/_custom_type_script = "uid://c6emffiokyt8t"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent" unique_id=723904033]
@@ -348,45 +485,55 @@ shape = SubResource("CapsuleShape2D_gdvss")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1424717200]
 texture_filter = 1
+position = Vector2(0, -4)
 
-[node name="HitflashGroupComponent" parent="Visuals" unique_id=1824532267 node_paths=PackedStringArray("healthComponent") instance=ExtResource("15_8bkqm")]
-material = SubResource("ShaderMaterial_pqyhb")
-healthComponent = NodePath("../../HealthComponent")
+[node name="HitflashGroupComponent" parent="Visuals" unique_id=1824532267 instance=ExtResource("15_8bkqm")]
+material = SubResource("ShaderMaterial_5r4pc")
+
+[node name="Back" type="Marker2D" parent="Visuals/HitflashGroupComponent" unique_id=31123555]
+position = Vector2(0, -10)
 
 [node name="Body" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=1854020381]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("15_pqyhb")
+position = Vector2(0, -10)
+texture = ExtResource("14_5r4pc")
 hframes = 4
-
-[node name="Head" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=129718284]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("16_oc7t1")
-hframes = 4
+vframes = 4
 
 [node name="LeftLeg" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=1515514419]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("17_4w8ti")
+position = Vector2(0, -10)
+texture = ExtResource("15_pqyhb")
 hframes = 4
+vframes = 4
 
 [node name="RightLeg" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=414130663]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("18_ys28v")
+position = Vector2(0, -10)
+texture = ExtResource("16_oc7t1")
 hframes = 4
+vframes = 4
 
 [node name="LeftArm" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=894150144]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("19_2xtqv")
+position = Vector2(0, -10)
+texture = ExtResource("17_4w8ti")
 hframes = 4
-
-[node name="RightArm" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=438325830]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("20_ue74a")
-hframes = 4
+vframes = 4
 
 [node name="Hat" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=709854279]
-position = Vector2(-0.41134468, -9.595801)
-texture = ExtResource("21_ebvow")
+position = Vector2(0, -10)
+texture = ExtResource("18_ys28v")
 hframes = 4
+vframes = 4
+
+[node name="Face" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=129718284]
+position = Vector2(0, -10)
+texture = ExtResource("19_2xtqv")
+hframes = 4
+vframes = 4
+
+[node name="RightArm" type="Sprite2D" parent="Visuals/HitflashGroupComponent" unique_id=438325830]
+position = Vector2(0, -10)
+texture = ExtResource("20_ue74a")
+hframes = 4
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=706093504]
 libraries/ = SubResource("AnimationLibrary_4w8ti")

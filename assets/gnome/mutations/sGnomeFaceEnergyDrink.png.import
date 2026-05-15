@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b86hn74f0s0ve"
-path="res://.godot/imported/sGnomeHead.png-143064b4878a2f09301008b73ca99938.ctex"
+uid="uid://ct1ktost1j0bs"
+path="res://.godot/imported/sGnomeFaceEnergyDrink.png-6f4b02c582a0c77fbd68bc2c8f8d60a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gnome/base/sGnomeHead.png"
-dest_files=["res://.godot/imported/sGnomeHead.png-143064b4878a2f09301008b73ca99938.ctex"]
+source_file="res://assets/gnome/mutations/sGnomeFaceEnergyDrink.png"
+dest_files=["res://.godot/imported/sGnomeFaceEnergyDrink.png-6f4b02c582a0c77fbd68bc2c8f8d60a9.ctex"]
 
 [params]
 

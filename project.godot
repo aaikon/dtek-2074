@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="DTEK-2074"
-run/main_scene="uid://cdmlgetgkgnnm"
+run/main_scene="uid://db2q3ihx6wxni"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
 SelectionController="*uid://xrwln3x4ss2g"
+MutationController="*uid://bi2lsws6sp6ui"
 
 [display]
 

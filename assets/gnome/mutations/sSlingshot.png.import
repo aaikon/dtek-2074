@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfgadbbpdu770"
-path="res://.godot/imported/sTestEnemy.png-74d1d52c95b0af49ed8724334362a35b.ctex"
+uid="uid://womgk4kw2jub"
+path="res://.godot/imported/sSlingshot.png-0cf15914b2dfda2bf4be782c7240a248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sTestEnemy.png"
-dest_files=["res://.godot/imported/sTestEnemy.png-74d1d52c95b0af49ed8724334362a35b.ctex"]
+source_file="res://assets/gnome/mutations/sSlingshot.png"
+dest_files=["res://.godot/imported/sSlingshot.png-0cf15914b2dfda2bf4be782c7240a248.ctex"]
 
 [params]
 

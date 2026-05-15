@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://0abyc3krjadn"]
+
+[ext_resource type="Script" uid="uid://dnb6tnt5bg2ej" path="res://mutations/SlingshotMutation.cs" id="1_a12lm"]
+
+[node name="SlingshotMutation" type="Node" unique_id=1827720984]
+script = ExtResource("1_a12lm")

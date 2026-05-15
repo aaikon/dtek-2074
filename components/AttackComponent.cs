@@ -5,14 +5,17 @@ namespace Game.component
     [GlobalClass]
     public partial class AttackComponent : Node
     {
+        [Signal]
+        public delegate void OnAttackTimeoutEventHandler();
+        
         [Export]
         private Node2D owner;
         [Export]
-        private float range = 30f;
+        public float Range = 30f;
         [Export]
-        private float damage = 1f;
+        public float Damage = 1f;
         [Export]
-        private float AttackInterval = 1f;
+        public float AttackInterval = 1f;
         
         private bool isAttacking = false;
 
@@ -34,7 +37,7 @@ namespace Game.component
 
         public bool IsInRange(Vector2 to, Vector2 from)
         {
-            return from.DistanceTo(to) <= range;
+            return from.DistanceTo(to) <= Range;
         }
 
         public void Start()
@@ -53,7 +56,8 @@ namespace Game.component
 
         private void OnTimerTimeout()
         {
-            target?.Attack(new Attack(damage, (target.GlobalPosition - owner.GlobalPosition).Normalized() * 100));
+            target?.Attack(new Attack(Damage, (target.GlobalPosition - owner.GlobalPosition).Normalized() * 100));
+            EmitSignal(SignalName.OnAttackTimeout);
         }
     }
 }

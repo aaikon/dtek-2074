@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://btxq407ben0mx"]
+
+[sub_resource type="SystemFont" id="SystemFont_wbth7"]
+font_names = PackedStringArray("Press Start 2P")
+
+[resource]
+default_font = SubResource("SystemFont_wbth7")
+default_font_size = 8

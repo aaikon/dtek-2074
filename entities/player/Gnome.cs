@@ -17,6 +17,8 @@ namespace Game.unit
     private PathfindComponent pathfindComponent;
     [Export]
     private AttackComponent attackComponent;
+    [Export]
+    private Node2D visuals;
 
     private Vector2? targetPosition;
     private CharacterBody2D targetEntity;
@@ -30,6 +32,7 @@ namespace Game.unit
 
       PlayerHealthBar.Instance.Add(healthComponent);
       healthComponent.HealthChanged += PlayerHealthBar.Instance.OnHealthChanged;
+      attackComponent.OnAttackTimeout += OnAttackTimeout;
     }
 
     public override void _Process(double delta)
@@ -42,6 +45,9 @@ namespace Game.unit
     {
       var velocity = velocityComponent.Velocity;
 
+      if (velocity.X != 0)
+        visuals.Scale = new Vector2(Math.Sign(velocity.X), 1);
+
       if (velocity == Vector2.Zero)
       {
         if (animationPlayer.CurrentAnimation == "idle") return;
@@ -50,9 +56,9 @@ namespace Game.unit
       }
       else
       {
-        if (animationPlayer.CurrentAnimation == "run") return;
+        if (animationPlayer.CurrentAnimation == "move" || animationPlayer.CurrentAnimation == "attack") return;
         animationPlayer.Play("RESET");
-        animationPlayer.Queue("run");
+        animationPlayer.Queue("move");
       }
     }
 
@@ -120,6 +126,11 @@ namespace Game.unit
       targetPosition = null;
       targetEntity = target;
       stateMachine.SetState(StateAttack);
+    }
+
+    private void OnAttackTimeout()
+    {
+      animationPlayer.Play("attack");
     }
   }
 }

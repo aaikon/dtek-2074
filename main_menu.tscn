@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://db2q3ihx6wxni"]
+
+[ext_resource type="Script" uid="uid://b7a05r1ko8l1s" path="res://MainMenu.cs" id="1_06t4h"]
+[ext_resource type="Theme" uid="uid://btxq407ben0mx" path="res://resources/mainTheme.tres" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://c4xvpgml5eom2" path="res://gui/RichMenuButton.cs" id="2_fu7sn"]
+
+[node name="MainMenu" type="Node" unique_id=129223828]
+script = ExtResource("1_06t4h")
+
+[node name="Start" type="Button" parent="." unique_id=1917029573]
+offset_left = 128.0
+offset_top = 104.0
+offset_right = 192.0
+offset_bottom = 120.0
+pivot_offset = Vector2(32, 8)
+theme = ExtResource("2_7vrkn")
+flat = true
+script = ExtResource("2_fu7sn")
+metadata/_custom_type_script = "uid://c4xvpgml5eom2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Start" unique_id=597887639]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_7vrkn")
+bbcode_enabled = true
+text = "Start"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="Button" parent="." unique_id=895415360]
+offset_left = 128.0
+offset_top = 120.0
+offset_right = 192.0
+offset_bottom = 136.0
+pivot_offset = Vector2(32, 8)
+flat = true
+script = ExtResource("2_fu7sn")
+metadata/_custom_type_script = "uid://c4xvpgml5eom2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options" unique_id=220227708]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_7vrkn")
+bbcode_enabled = true
+text = "Options"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="." unique_id=125774486]
+offset_left = 128.0
+offset_top = 136.0
+offset_right = 192.0
+offset_bottom = 152.0
+pivot_offset = Vector2(32, 8)
+flat = true
+script = ExtResource("2_fu7sn")
+metadata/_custom_type_script = "uid://c4xvpgml5eom2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Quit" unique_id=362013849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_7vrkn")
+bbcode_enabled = true
+text = "Quit"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

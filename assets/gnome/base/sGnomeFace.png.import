@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0w67q0bk188q"
-path="res://.godot/imported/sHealthBar.png-6594d93a939568091f512b4c428e05bd.ctex"
+uid="uid://40paxokcrnm7"
+path="res://.godot/imported/sGnomeFace.png-bebd3b01e4444584a840ff04b8c78ba3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sHealthBar.png"
-dest_files=["res://.godot/imported/sHealthBar.png-6594d93a939568091f512b4c428e05bd.ctex"]
+source_file="res://assets/gnome/base/sGnomeFace.png"
+dest_files=["res://.godot/imported/sGnomeFace.png-bebd3b01e4444584a840ff04b8c78ba3.ctex"]
 
 [params]
 

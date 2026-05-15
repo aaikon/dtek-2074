@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://rf2g00phkvqf" path="res://entities/enemy/TestEnemy.cs" id="1_gp0w8"]
 [ext_resource type="Material" uid="uid://dpem1p57p8tg3" path="res://materials/OutlineMaterial.tres" id="2_c708d"]
 [ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="3_bs10j"]
-[ext_resource type="Texture2D" uid="uid://bfgadbbpdu770" path="res://sTestEnemy.png" id="3_c708d"]
+[ext_resource type="Texture2D" uid="uid://bfgadbbpdu770" path="res://assets/enemy/sTestEnemy.png" id="3_c708d"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="5_bs10j"]
 [ext_resource type="Script" uid="uid://bnog8t5vijhue" path="res://components/HurtboxComponent.cs" id="6_s8xf6"]
 [ext_resource type="Script" uid="uid://ck4p010nvjrti" path="res://components/HealthComponent.cs" id="7_2cheo"]
@@ -86,7 +86,6 @@ animationPlayer = NodePath("AnimationPlayer")
 shape = SubResource("CircleShape2D_bs10j")
 
 [node name="SelectableComponent" type="Area2D" parent="." unique_id=390734002 node_paths=PackedStringArray("Target")]
-material = ExtResource("2_c708d")
 script = ExtResource("3_bs10j")
 Target = NodePath("..")
 outlineMaterial = ExtResource("2_c708d")

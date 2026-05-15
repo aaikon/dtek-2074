@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c0ql5vnauqxde"]
+
+[ext_resource type="Script" uid="uid://o3ix52256mkn" path="res://mutations/EnergyDrinkMutation.cs" id="1_jrvg4"]
+
+[node name="EnergyDrinkMutation" type="Node" unique_id=1078620622]
+script = ExtResource("1_jrvg4")

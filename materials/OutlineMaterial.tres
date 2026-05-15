@@ -6,5 +6,7 @@
 resource_local_to_scene = true
 shader = ExtResource("1_0j4ag")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/corner_pixel = false
-shader_parameter/enabled = false
+shader_parameter/line_thickness = 5
+shader_parameter/outline_enabled = false
+shader_parameter/hitflash_color = Color(1, 1, 1, 1)
+shader_parameter/hitflash_on = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2qdm0df7r4q0"
-path="res://.godot/imported/sGnomeRightArm.png-19c9181a60ad5c2c053e24c5da457241.ctex"
+uid="uid://b0yj75ggtiac6"
+path="res://.godot/imported/sEnergyDrinkMutationIcon.png-51d9c21ce9ddd428d42784829487a72c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gnome/base/sGnomeRightArm.png"
-dest_files=["res://.godot/imported/sGnomeRightArm.png-19c9181a60ad5c2c053e24c5da457241.ctex"]
+source_file="res://assets/gnome/mutations/sEnergyDrinkMutationIcon.png"
+dest_files=["res://.godot/imported/sEnergyDrinkMutationIcon.png-51d9c21ce9ddd428d42784829487a72c.ctex"]
 
 [params]
 

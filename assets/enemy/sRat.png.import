@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0auol1iua87t"
-path="res://.godot/imported/sLuckyHat.png-1ec2daed91c541c41c2ce5d682551366.ctex"
+uid="uid://b4n7gf2rkg828"
+path="res://.godot/imported/sRat.png-0fbe0ac2fdd80f0c27078f8873ca50e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gnome/mutations/sLuckyHat.png"
-dest_files=["res://.godot/imported/sLuckyHat.png-1ec2daed91c541c41c2ce5d682551366.ctex"]
+source_file="res://assets/enemy/sRat.png"
+dest_files=["res://.godot/imported/sRat.png-0fbe0ac2fdd80f0c27078f8873ca50e1.ctex"]
 
 [params]
 

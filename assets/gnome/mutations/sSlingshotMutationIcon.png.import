@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhvmswr7sjgii"
-path="res://.godot/imported/sGnomeMove.png-2991125254e11bb00e3d41f34f7cdf49.ctex"
+uid="uid://bg28ee77a8v14"
+path="res://.godot/imported/sSlingshotMutationIcon.png-fe39fb4b93280a9bd600fde803c0972a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sGnomeMove.png"
-dest_files=["res://.godot/imported/sGnomeMove.png-2991125254e11bb00e3d41f34f7cdf49.ctex"]
+source_file="res://assets/gnome/mutations/sSlingshotMutationIcon.png"
+dest_files=["res://.godot/imported/sSlingshotMutationIcon.png-fe39fb4b93280a9bd600fde803c0972a.ctex"]
 
 [params]
 

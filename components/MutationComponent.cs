@@ -11,7 +11,21 @@ namespace Game.component
     [Export]
     public VelocityComponent VelocityComponent;
     [Export]
+    public AttackComponent AttackComponent;
+    [Export]
     public Sprite2D HatSprite;
+    [Export]
+    public Sprite2D FaceSprite;
+    [Export]
+    public Sprite2D RightArmSprite;
+    [Export]
+    public Sprite2D LeftArmSprite;
+    [Export]
+    public Sprite2D RightLegSprite;
+    [Export]
+    public Sprite2D LeftLegSprite;
+    [Export]
+    public Marker2D Back;
 
     public Array<Mutation> Mutations = new();
 

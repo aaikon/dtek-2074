@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cr7dwd4msrs3n"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_qg4lv"]
+script/source = "using Godot;
+using Game.component;
+
+namespace Game.mutation
+{
+  [GlobalClass]
+  public partial class LuckyMutation : Mutation
+  {
+
+    public override void Apply(MutationComponent mutationComponent)
+    {
+      mutationComponent.HatSprite.Texture = GD.Load<Texture2D>(\"res://assets/gnome/mutations/sLuckyHat.png\");
+
+      // Change the ammount of gold dropped by enemies (luck stat?)
+    }
+  }
+}
+"
+
+[node name="LuckyMutation" type="Node" unique_id=6727339]
+script = SubResource("CSharpScript_qg4lv")
