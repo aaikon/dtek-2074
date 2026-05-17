@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://c4ogpqbpabyqd"]
+
+[ext_resource type="Script" uid="uid://drn75obypbqdp" path="res://Shop.cs" id="1_6lah5"]
+[ext_resource type="Material" uid="uid://dpem1p57p8tg3" path="res://materials/OutlineMaterial.tres" id="1_blqjs"]
+[ext_resource type="Texture2D" uid="uid://cs0ni73qs0klu" path="res://assets/sShop.png" id="2_fgaav"]
+[ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://entities/player/gnome.tscn" id="2_gmb2m"]
+[ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="3_6lah5"]
+[ext_resource type="Script" uid="uid://c4xvpgml5eom2" path="res://gui/RichMenuButton.cs" id="5_gmb2m"]
+[ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="7_8kdgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blqjs"]
+size = Vector2(32, 28.5)
+
+[node name="Shop" type="Control" unique_id=1744854927 node_paths=PackedStringArray("menu", "buyGnome", "exit")]
+layout_mode = 3
+anchor_right = 0.106000006
+anchor_bottom = 0.16100001
+offset_right = 0.07999802
+offset_bottom = 0.019996643
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(17, 30)
+script = ExtResource("1_6lah5")
+menu = NodePath("ShopMenu")
+buyGnome = NodePath("ShopMenu/BuyGnome")
+exit = NodePath("ShopMenu/Exit")
+gnomeScene = ExtResource("2_gmb2m")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=400184380]
+material = ExtResource("1_blqjs")
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 29.0
+texture = ExtResource("2_fgaav")
+
+[node name="SelectableComponent" type="Area2D" parent="." unique_id=2019602126 node_paths=PackedStringArray("Target")]
+visible = false
+script = ExtResource("3_6lah5")
+Target = NodePath("..")
+outlineMaterial = ExtResource("1_blqjs")
+metadata/_custom_type_script = "uid://c6emffiokyt8t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableComponent" unique_id=129481691]
+position = Vector2(17, 14.75)
+shape = SubResource("RectangleShape2D_blqjs")
+
+[node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1530596795]
+
+[node name="BuyGnome" type="Button" parent="ShopMenu" unique_id=1233661596]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -9.5
+offset_right = 34.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("5_gmb2m")
+metadata/_custom_type_script = "uid://c4xvpgml5eom2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ShopMenu/BuyGnome" unique_id=613489783]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -20.0
+offset_right = 39.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "+1 Gnome"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="ShopMenu" unique_id=529359697]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -31.0
+offset_bottom = 19.0
+grow_horizontal = 0
+flat = true
+script = ExtResource("5_gmb2m")
+metadata/_custom_type_script = "uid://c4xvpgml5eom2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ShopMenu/Exit" unique_id=78982940]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Exit
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShadowComponent" type="Node2D" parent="." unique_id=19301186]
+position = Vector2(17, 28)
+script = ExtResource("7_8kdgp")
+size = Vector2(16, 8)
+metadata/_custom_type_script = "uid://8b14piof2keb"

@@ -9,6 +9,8 @@ namespace Game.component
     public delegate void HealthChangedEventHandler(float health, float maxHealth);
     [Signal]
     public delegate void DamageTakenEventHandler();
+    [Signal]
+    public delegate void OnHealthZeroEventHandler();
 
     [Export]
     public float MaxHealth { get; private set; }
@@ -24,6 +26,8 @@ namespace Game.component
     {
       SetHealth(Health - damage);
       EmitSignal(SignalName.DamageTaken);
+      if (Health <= 0f)
+        EmitSignal(SignalName.OnHealthZero);
     }
 
     private void SetMaxHealth(float health)

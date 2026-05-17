@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o64lasvgxswk"
-path="res://.godot/imported/sRat.png-0fbe0ac2fdd80f0c27078f8873ca50e1.ctex"
+uid="uid://4vngwskrt3a5"
+path="res://.godot/imported/sGoldIcon.png-97f8dc83d3ab2a9d1d26b2130252ed01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/sRat.png"
-dest_files=["res://.godot/imported/sRat.png-0fbe0ac2fdd80f0c27078f8873ca50e1.ctex"]
+source_file="res://assets/sGoldIcon.png"
+dest_files=["res://.godot/imported/sGoldIcon.png-97f8dc83d3ab2a9d1d26b2130252ed01.ctex"]
 
 [params]
 

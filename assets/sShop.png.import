@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o64lasvgxswk"
-path="res://.godot/imported/sRat.png-0fbe0ac2fdd80f0c27078f8873ca50e1.ctex"
+uid="uid://cs0ni73qs0klu"
+path="res://.godot/imported/sShop.png-71170b1d6c3f71da5a687a3883a95356.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/sRat.png"
-dest_files=["res://.godot/imported/sRat.png-0fbe0ac2fdd80f0c27078f8873ca50e1.ctex"]
+source_file="res://assets/sShop.png"
+dest_files=["res://.godot/imported/sShop.png-71170b1d6c3f71da5a687a3883a95356.ctex"]
 
 [params]
 

@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 SelectionController="*uid://xrwln3x4ss2g"
 MutationController="*uid://bi2lsws6sp6ui"
+GamestateController="*uid://dporod3jm6yig"
 
 [display]
 

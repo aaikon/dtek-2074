@@ -426,6 +426,7 @@ metadata/_custom_type_script = "uid://8b14piof2keb"
 [node name="AttackComponent" type="Node" parent="." unique_id=839602702 node_paths=PackedStringArray("owner")]
 script = ExtResource("2_e3mxj")
 owner = NodePath("..")
+Damage = 5.0
 metadata/_custom_type_script = "uid://benrwad8i5oqu"
 
 [node name="VelocityComponent" type="Node" parent="." unique_id=2007396074]

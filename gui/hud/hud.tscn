@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bi1gev0hbebp1" path="res://gui/hud/PlayerHealthBar.cs" id="4_y7mac"]
 [ext_resource type="Texture2D" uid="uid://b0w67q0bk188q" path="res://assets/ui/sHealthBar.png" id="4_yi2h0"]
 [ext_resource type="Theme" uid="uid://btxq407ben0mx" path="res://resources/mainTheme.tres" id="5_i4ntl"]
+[ext_resource type="Script" uid="uid://x4o8srcfq501" path="res://gui/hud/GoldLabel.cs" id="8_tq0k8"]
 
 [sub_resource type="Animation" id="Animation_i4ntl"]
 length = 0.001
@@ -164,3 +165,18 @@ offset_bottom = 32.0
 grow_horizontal = 2
 show_percentage = false
 script = ExtResource("4_y7mac")
+
+[node name="GoldLabel" type="RichTextLabel" parent="." unique_id=1873342433]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_bottom = 25.0
+grow_horizontal = 0
+bbcode_enabled = true
+text = "[img]res://assets/sGoldIcon.png[/img] 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+script = ExtResource("8_tq0k8")
