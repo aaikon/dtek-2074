@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c0ql5vnauqxde" path="res://mutations/energy_drink_mutation.tscn" id="10_efxa6"]
 [ext_resource type="Texture2D" uid="uid://b0yj75ggtiac6" path="res://assets/gnome/mutations/sEnergyDrinkMutationIcon.png" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c4mooxc2qi23g" path="res://entities/enemy/rat.tscn" id="12_dg77c"]
-[ext_resource type="PackedScene" uid="uid://c4ogpqbpabyqd" path="res://shop.tscn" id="13_ycdy4"]
-[ext_resource type="Script" uid="uid://cv5v2yydk1o4j" path="res://MovableCamera.cs" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://c4ogpqbpabyqd" path="res://gui/shop.tscn" id="13_ycdy4"]
+[ext_resource type="Script" uid="uid://cv5v2yydk1o4j" path="res://gui/camera/MovableCamera.cs" id="14_w48qg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5vw27"]
 shader = ExtResource("3_272bh")

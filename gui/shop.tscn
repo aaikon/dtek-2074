@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4ogpqbpabyqd"]
 
-[ext_resource type="Script" uid="uid://drn75obypbqdp" path="res://Shop.cs" id="1_6lah5"]
+[ext_resource type="Script" uid="uid://drn75obypbqdp" path="res://gui/Shop.cs" id="1_6lah5"]
 [ext_resource type="Material" uid="uid://dpem1p57p8tg3" path="res://materials/OutlineMaterial.tres" id="1_blqjs"]
 [ext_resource type="Texture2D" uid="uid://cs0ni73qs0klu" path="res://assets/sShop.png" id="2_fgaav"]
 [ext_resource type="PackedScene" uid="uid://gv3p656rt5nu" path="res://entities/player/gnome.tscn" id="2_gmb2m"]
