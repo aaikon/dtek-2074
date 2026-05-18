@@ -4,6 +4,7 @@ using Godot;
 public partial class RichMenuButton : Button
 {
   private RichTextLabel textLabel => GetNode<RichTextLabel>("RichTextLabel");
+  private AudioStreamPlayer audioPlayer => GetNode<AudioStreamPlayer>("AudioStreamPlayer");
   private string text;
   private Tween scaleTween;
 
@@ -13,6 +14,8 @@ public partial class RichMenuButton : Button
 
     MouseEntered += () =>
     {
+      audioPlayer.Play();
+      
       textLabel.Text = "[wave]" + text;
 
       if (scaleTween != null && scaleTween.IsRunning())

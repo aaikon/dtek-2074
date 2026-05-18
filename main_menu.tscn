@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7a05r1ko8l1s" path="res://MainMenu.cs" id="1_06t4h"]
 [ext_resource type="Theme" uid="uid://btxq407ben0mx" path="res://resources/mainTheme.tres" id="2_7vrkn"]
 [ext_resource type="Script" uid="uid://c4xvpgml5eom2" path="res://gui/RichMenuButton.cs" id="2_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://hx03jl5qoowj" path="res://audio/blipSelect.wav" id="4_jix8l"]
 
 [node name="MainMenu" type="Node" unique_id=129223828]
 script = ExtResource("1_06t4h")
@@ -34,6 +35,9 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Start" unique_id=14212235]
+stream = ExtResource("4_jix8l")
+
 [node name="Options" type="Button" parent="." unique_id=895415360]
 offset_left = 128.0
 offset_top = 120.0
@@ -60,6 +64,9 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Options" unique_id=414214543]
+stream = ExtResource("4_jix8l")
+
 [node name="Quit" type="Button" parent="." unique_id=125774486]
 offset_left = 128.0
 offset_top = 136.0
@@ -85,3 +92,6 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Quit" unique_id=1918865047]
+stream = ExtResource("4_jix8l")

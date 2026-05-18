@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c6emffiokyt8t" path="res://components/SelectableComponent.cs" id="3_6lah5"]
 [ext_resource type="Script" uid="uid://c4xvpgml5eom2" path="res://gui/RichMenuButton.cs" id="5_gmb2m"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="7_8kdgp"]
+[ext_resource type="AudioStream" uid="uid://hx03jl5qoowj" path="res://audio/blipSelect.wav" id="7_myf4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blqjs"]
 size = Vector2(32, 28.5)
@@ -45,6 +46,7 @@ position = Vector2(17, 14.75)
 shape = SubResource("RectangleShape2D_blqjs")
 
 [node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1530596795]
+visible = false
 
 [node name="BuyGnome" type="Button" parent="ShopMenu" unique_id=1233661596]
 anchors_preset = 8
@@ -52,10 +54,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -9.5
-offset_right = 34.0
-offset_bottom = 9.5
+offset_left = -52.5
+offset_top = -14.75
+offset_right = 52.5
+offset_bottom = 14.75
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
@@ -64,15 +66,9 @@ metadata/_custom_type_script = "uid://c4xvpgml5eom2"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ShopMenu/BuyGnome" unique_id=613489783]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.5
-offset_top = -20.0
-offset_right = 39.5
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -80,12 +76,15 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
-text = "+1 Gnome"
+text = "+1 Gnome   [img]res://assets/sGoldIcon.png[/img] 3"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShopMenu/BuyGnome" unique_id=1529944064]
+stream = ExtResource("7_myf4l")
 
 [node name="Exit" type="Button" parent="ShopMenu" unique_id=529359697]
 anchors_preset = 1
@@ -118,6 +117,9 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShopMenu/Exit" unique_id=2055845890]
+stream = ExtResource("7_myf4l")
 
 [node name="ShadowComponent" type="Node2D" parent="." unique_id=19301186]
 position = Vector2(17, 28)

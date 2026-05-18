@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://o64lasvgxswk" path="res://assets/enemy/sRat.png" id="10_g6dpy"]
 [ext_resource type="PackedScene" uid="uid://i75ot8xqpwqg" path="res://components/health_bar_component.tscn" id="11_qy6yl"]
 [ext_resource type="Script" uid="uid://8b14piof2keb" path="res://components/ShadowComponent.cs" id="12_5bwxe"]
+[ext_resource type="Script" uid="uid://benrwad8i5oqu" path="res://components/AttackComponent.cs" id="13_816ib"]
 [ext_resource type="Script" uid="uid://dyb7v154fjvka" path="res://components/PathfindComponent.cs" id="13_agnvu"]
 [ext_resource type="Animation" uid="uid://c58he6bun7gff" path="res://resources/shake.res" id="16_yic7u"]
 
@@ -128,6 +129,12 @@ script = ExtResource("7_iughs")
 maxSpeed = 10.0
 acceleration = 0.3
 metadata/_custom_type_script = "uid://beu4rd38r5hwv"
+
+[node name="AttackComponent" type="Node" parent="." unique_id=1695622985 node_paths=PackedStringArray("owner")]
+script = ExtResource("13_816ib")
+owner = NodePath("..")
+Damage = 0.1
+metadata/_custom_type_script = "uid://benrwad8i5oqu"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=516919554]
 

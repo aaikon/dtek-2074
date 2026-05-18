@@ -89,14 +89,20 @@ position = Vector2(144, 176)
 Mutation = ExtResource("10_efxa6")
 icon = ExtResource("11_dg77c")
 
-[node name="Rat" parent="World" unique_id=510024999 instance=ExtResource("12_dg77c")]
-position = Vector2(56, 64)
-
 [node name="Shop" parent="World" unique_id=1744854927 instance=ExtResource("13_ycdy4")]
 offset_left = 168.0
 offset_top = 48.0
 offset_right = 168.08
 offset_bottom = 48.019997
+
+[node name="Rat" parent="World" unique_id=510024999 instance=ExtResource("12_dg77c")]
+position = Vector2(56, 64)
+
+[node name="Rat2" parent="World" unique_id=546254472 instance=ExtResource("12_dg77c")]
+position = Vector2(216, 328)
+
+[node name="Rat3" parent="World" unique_id=252750873 instance=ExtResource("12_dg77c")]
+position = Vector2(288, 200)
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=1053993846]
 position = Vector2(152, 96)
